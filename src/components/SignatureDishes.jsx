@@ -11,6 +11,7 @@ const dishes = [
         name: 'Artisanal Sushi Rolls',
         description: 'Hand-rolled sushi with fresh avocado, tempura flakes, and signature house glaze.',
         image: imgSushi,
+        objectPosition: 'center bottom',
     },
     {
         id: 2,
@@ -44,7 +45,11 @@ const SignatureDishes = () => {
                                 style={{ transitionDelay: `${index * 0.2}s` }}
                             >
                                 <div className="dish-image">
-                                    <img src={dish.image} alt={dish.name} />
+                                    <img
+                                        src={dish.image}
+                                        alt={dish.name}
+                                        style={{ objectPosition: dish.objectPosition || 'center center' }}
+                                    />
                                     <div className="dish-overlay">
                                         <div className="dish-info">
                                             <h4 className="dish-name">{dish.name}</h4>
