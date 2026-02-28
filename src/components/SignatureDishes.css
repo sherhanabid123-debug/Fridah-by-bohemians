@@ -119,14 +119,14 @@
     }
 
     .dish-card {
-        min-width: 85vw;
-        /* Leaves a peek of the next card */
+        width: 85vw;
+        max-width: 400px;
         scroll-snap-align: center;
         flex-shrink: 0;
     }
 
     .dish-image {
-        height: 400px;
+        height: 350px;
     }
 
     .swipe-indicator {
