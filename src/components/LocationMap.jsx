@@ -37,21 +37,19 @@ const LocationMap = () => {
                             <span className="btn-secondary" style={{ display: 'inline-block', width: 'fit-content' }}>Open in Google Maps</span>
                         </div>
                     </div>
-                    <div className="map-embed-container" style={{ flex: 1.5, position: 'relative' }}>
-                        <div className="map-embed">
-                            <iframe
-                                src={freeMapUrl}
-                                width="100%"
-                                height="450"
-                                style={{ border: 0, pointerEvents: 'none' }}
-                                allowFullScreen=""
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                                title="Fridah Location"
-                            ></iframe>
-                            <div className="map-click-overlay">
-                                <span>Click to Open in Maps</span>
-                            </div>
+                    <div className="map-embed-container">
+                        <iframe
+                            src={freeMapUrl}
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0, pointerEvents: 'none', minHeight: '450px' }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Fridah Location"
+                        ></iframe>
+                        <div className="map-click-overlay">
+                            <span>Click to Open in Maps</span>
                         </div>
                     </div>
                 </a>
