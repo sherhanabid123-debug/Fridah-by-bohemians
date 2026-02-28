@@ -6,12 +6,13 @@
     z-index: 1000;
     padding: var(--spacing-md) 0;
     transition: all var(--transition-normal);
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
 }
 
 .header.scrolled {
     padding: var(--spacing-sm) 0;
-    background-color: rgba(2, 2, 2, 0.7);
-    backdrop-filter: blur(25px);
+    background-color: rgba(3, 3, 3, 0.6);
+    backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(212, 175, 55, 0.1);
 }
 

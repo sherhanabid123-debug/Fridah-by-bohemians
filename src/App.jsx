@@ -9,41 +9,50 @@ import Gallery from './components/Gallery';
 import LocationMap from './components/LocationMap';
 import Reservation from './components/Reservation';
 import Footer from './components/Footer';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
-  // Global scroll reveal logic
+  // Enhanced scroll reveal logic
   useEffect(() => {
-    const handleReveal = () => {
-      const reveals = document.querySelectorAll('.reveal');
-      const windowHeight = window.innerHeight;
-      const elementVisible = 100;
-
-      reveals.forEach((reveal) => {
-        const elementTop = reveal.getBoundingClientRect().top;
-        if (elementTop < windowHeight - elementVisible) {
-          reveal.classList.add('active');
-        }
-      });
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
     };
 
-    window.addEventListener('scroll', handleReveal);
-    handleReveal(); // Trigger on initial load
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Add a tiny delay for more organic feel
+          setTimeout(() => {
+            entry.target.classList.add('active');
+          }, 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
 
-    return () => window.removeEventListener('scroll', handleReveal);
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="app-container">
-      <Header />
-      <Hero />
-      <About />
-      <SignatureDishes />
-      <Experience />
-      <MenuPreview />
-      <Gallery />
-      <LocationMap />
-      <Reservation />
-      <Footer />
+    <div className="app-root">
+      <div className="grain-overlay" />
+      <CustomCursor />
+      <div className="app-container">
+        <Header />
+        <Hero />
+        <About />
+        <SignatureDishes />
+        <Experience />
+        <MenuPreview />
+        <Gallery />
+        <LocationMap />
+        <Reservation />
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -29,6 +29,10 @@
 
   /* Layout */
   --max-width: 1400px;
+
+  /* Custom Effects */
+  --glow-gold: 0 0 20px rgba(212, 175, 55, 0.3);
+  --glow-white: 0 0 20px rgba(255, 255, 255, 0.15);
 }
 
 * {
@@ -43,7 +47,7 @@ html {
 }
 
 body {
-  background-color: var(--color-black);
+  background: radial-gradient(circle at center, #0f0e0d 0%, #030303 100%);
   color: var(--color-off-white);
   font-family: var(--font-body);
   font-weight: 300;
@@ -67,16 +71,20 @@ h6 {
 
 h1 {
   font-size: clamp(3.5rem, 6vw, 7rem);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 h2 {
   font-size: clamp(2.2rem, 4vw, 4rem);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 h3 {
   font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 p {
@@ -154,13 +162,14 @@ img {
 
 .btn-primary {
   display: inline-block;
-  background-color: transparent;
+  background-color: rgba(212, 175, 55, 0.05);
   color: var(--color-gold);
-  border: 1px solid rgba(212, 175, 55, 0.4);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  backdrop-filter: blur(10px);
   padding: 1.2rem 3.5rem;
   font-family: var(--font-heading);
-  font-size: 0.95rem;
-  letter-spacing: 0.15em;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   cursor: pointer;
   transition: all var(--transition-normal);
@@ -171,18 +180,20 @@ img {
 .btn-primary:hover {
   background-color: var(--color-gold);
   color: var(--color-black);
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+  box-shadow: var(--glow-gold);
+  border-color: var(--color-gold);
 }
 
 .btn-secondary {
   display: inline-block;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.03);
   color: var(--color-white);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   padding: 1rem 3rem;
   font-family: var(--font-heading);
   font-size: 0.85rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   cursor: pointer;
   transition: all var(--transition-normal);
@@ -193,7 +204,8 @@ img {
 .btn-secondary:hover {
   background-color: var(--color-white);
   color: var(--color-black);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  box-shadow: var(--glow-white);
+  border-color: var(--color-white);
 }
 
 /* Scroll Reveling Utilities */
@@ -206,4 +218,85 @@ img {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Cinematic Grain */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url('https://grain-y.com/images/grain.png');
+  /* Placeholder or CSS grain */
+  mix-blend-mode: overlay;
+}
+
+/* Pure CSS Grain fallback/alternative */
+.grain-overlay::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  animation: grain 8s steps(10) infinite;
+}
+
+@keyframes grain {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-5%, -10%);
+  }
+
+  20% {
+    transform: translate(-15%, 5%);
+  }
+
+  30% {
+    transform: translate(7%, -25%);
+  }
+
+  40% {
+    transform: translate(-5%, 25%);
+  }
+
+  50% {
+    transform: translate(-15%, 10%);
+  }
+
+  60% {
+    transform: translate(15%, 0%);
+  }
+
+  70% {
+    transform: translate(0%, 15%);
+  }
+
+  80% {
+    transform: translate(3%, 35%);
+  }
+
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
+/* Hide default cursor globally */
+@media (pointer: fine) {
+
+  body,
+  a,
+  button {
+    cursor: none !important;
+  }
 }

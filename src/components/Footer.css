@@ -1,8 +1,8 @@
 .footer {
-    background-color: var(--color-black);
+    background: radial-gradient(circle at bottom, #0f0e0d 0%, #030303 100%);
     color: var(--color-white);
     padding: var(--spacing-xl) 0 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(212, 175, 55, 0.05);
 }
 
 .footer-container {
@@ -19,14 +19,15 @@
 .footer-logo {
     font-size: 2.5rem;
     margin-bottom: 0;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.25em;
+    color: var(--color-gold);
 }
 
 .footer-tagline {
     font-size: 0.8rem;
-    letter-spacing: 0.4em;
+    letter-spacing: 0.5em;
     text-transform: uppercase;
-    color: var(--color-gold);
+    color: rgba(255, 255, 255, 0.4);
     margin-top: -5px;
     margin-bottom: var(--spacing-md);
 }

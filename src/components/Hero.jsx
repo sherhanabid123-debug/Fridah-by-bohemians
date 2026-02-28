@@ -6,7 +6,13 @@ const Hero = () => {
     <section className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
       <div className="hero-overlay"></div>
       <div className="hero-content container reveal active">
-        <h2 className="hero-subtitle">Welcome to Whitefield</h2>
+        <h2 className="hero-subtitle">
+          {"Welcome to Whitefield".split("").map((char, index) => (
+            <span key={index} style={{ "--char-index": index }}>
+              {char === " " ? "\u00A0" : char}
+            </span>
+          ))}
+        </h2>
         <h1 className="hero-title">Fridah<br /><span>by Bohemians</span></h1>
         <p className="hero-tagline">An immersive journey through bohemian luxury and artisanal multicuisine.</p>
         <div className="hero-actions">
