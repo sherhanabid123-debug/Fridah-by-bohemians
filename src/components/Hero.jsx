@@ -3,7 +3,8 @@ import heroImage from '../assets/images/hero_dining.jpg';
 
 const Hero = () => {
   return (
-    <section className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
+    <section className="hero">
+      <div className="hero-background" style={{ backgroundImage: `url(${heroImage})` }}></div>
       <div className="hero-overlay"></div>
       <div className="hero-content container reveal active">
         <h2 className="hero-subtitle">Welcome to Whitefield</h2>

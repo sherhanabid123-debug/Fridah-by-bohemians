@@ -49,7 +49,17 @@ const Header = () => {
                         <li><a href="#dishes" onClick={toggleMenu}>Dishes</a></li>
                         <li><a href="#menu" onClick={toggleMenu}>Menu</a></li>
                         <li><a href="#gallery" onClick={toggleMenu}>Gallery</a></li>
-                        <li><a href="#reservation" className="nav-cta" onClick={toggleMenu}>Reservations</a></li>
+                        <li><a href="#reservation" onClick={toggleMenu}>Reservations</a></li>
+                        <li>
+                            <a
+                                href="https://wa.me/919886653000"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="nav-cta"
+                            >
+                                Order Now
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>

@@ -6,11 +6,31 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    /* Parallax effect */
-    overflow: hidden;
+    z-index: 0;
+    animation: ambientZoom 20s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+@keyframes ambientZoom {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.08);
+    }
 }
 
 .hero-overlay {
