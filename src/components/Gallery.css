@@ -88,8 +88,8 @@
     }
 
     .gallery-item {
-        min-width: 85vw;
-        /* Leaves a peek of the next image */
+        min-width: 70vw;
+        aspect-ratio: 4 / 3;
         scroll-snap-align: center;
         flex-shrink: 0;
     }
