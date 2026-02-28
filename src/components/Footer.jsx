@@ -1,3 +1,4 @@
+import { Instagram } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
@@ -8,7 +9,9 @@ const Footer = () => {
                     <h2 className="footer-logo">Fridah</h2>
                     <p className="footer-tagline">By Bohemians</p>
                     <div className="footer-social">
-                        <a href="https://www.instagram.com/house_of_fridah/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+                        <a href="https://www.instagram.com/house_of_fridah/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <Instagram size={24} strokeWidth={1.5} />
+                        </a>
                     </div>
                 </div>
 
