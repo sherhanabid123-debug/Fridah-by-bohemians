@@ -1,3 +1,4 @@
+import { MoveRight } from 'lucide-react';
 import './SignatureDishes.css';
 
 import imgSushi from '../assets/images/food_sushi.jpg';
@@ -32,6 +33,11 @@ const SignatureDishes = () => {
                 <div className="section-header reveal">
                     <h3 className="section-subtitle">Culinary Masterpieces</h3>
                     <h2 className="section-title">Signature Dishes</h2>
+                </div>
+
+                <div className="swipe-indicator mobile-only reveal">
+                    <span>Swipe</span>
+                    <MoveRight size={16} strokeWidth={1.5} />
                 </div>
 
                 <div className="dishes-grid">

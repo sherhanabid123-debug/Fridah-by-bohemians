@@ -72,7 +72,12 @@
     margin-top: var(--spacing-sm);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+        /* Disable parallax on mobile to fix disappearing image bug */
+    }
+
     .hero-actions {
         flex-direction: column;
         width: 100%;

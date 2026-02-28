@@ -207,3 +207,42 @@ img {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Mobile Utilities */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: flex;
+  }
+}
+
+.swipe-indicator {
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--spacing-sm);
+  opacity: 0.8;
+  animation: pulseSwipe 2s infinite ease-in-out;
+}
+
+@keyframes pulseSwipe {
+
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translateX(5px);
+    opacity: 1;
+  }
+}

@@ -1,3 +1,4 @@
+import { MoveRight } from 'lucide-react';
 import './Gallery.css';
 import img1 from '../assets/images/outdoor_seating.jpg';
 import img2 from '../assets/images/alleyway.jpg';
@@ -15,6 +16,11 @@ const Gallery = () => {
                 <div className="section-header reveal">
                     <h3 className="section-subtitle">Visual Journey</h3>
                     <h2 className="section-title">The Fridah Aesthetic</h2>
+                </div>
+
+                <div className="swipe-indicator mobile-only reveal">
+                    <span>Swipe</span>
+                    <MoveRight size={16} strokeWidth={1.5} />
                 </div>
             </div>
 
