@@ -269,8 +269,3 @@ img {
   box-shadow: 0 0 10px var(--color-gold);
   transition: width 0.1s ease-out;
 }
-
-/* Scrub Blur Typography */
-.scrub-blur {
-  will-change: filter, opacity;
-}
