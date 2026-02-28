@@ -61,12 +61,24 @@ const Gallery = () => {
         }
     };
 
+    const handleMouseMove = (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        e.currentTarget.style.setProperty('--mouse-x', `${x}%`);
+        e.currentTarget.style.setProperty('--mouse-y', `${y}%`);
+    };
+
     return (
         <section id="gallery" className="gallery section-padding">
             <div className="container">
                 <div className="section-header reveal">
-                    <h3 className="section-subtitle">Visual Journey</h3>
-                    <h2 className="section-title">The Fridah Aesthetic</h2>
+                    <h3 className="section-subtitle">
+                        <span className="mask-reveal"><span>Visual Journey</span></span>
+                    </h3>
+                    <h2 className="section-title">
+                        <span className="mask-reveal"><span>The Fridah Aesthetic</span></span>
+                    </h2>
                 </div>
             </div>
 
@@ -83,6 +95,7 @@ const Gallery = () => {
                             key={index}
                             className="gallery-item reveal"
                             style={{ transitionDelay: `${(index % 3) * 0.1}s` }}
+                            onMouseMove={handleMouseMove}
                         >
                             <img src={src} alt={`Fridah Gallery Image ${index + 1}`} />
                             <div className="gallery-overlay">

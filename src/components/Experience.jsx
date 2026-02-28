@@ -4,12 +4,16 @@ import expImage from '../assets/images/experience_balcony.jpg';
 const Experience = () => {
     return (
         <section id="experience" className="experience">
-            <div className="experience-parallax" style={{ backgroundImage: `url(${expImage})` }}>
+            <div className="experience-parallax reveal" style={{ backgroundImage: `url(${expImage})` }}>
                 <div className="experience-overlay"></div>
                 <div className="experience-content container reveal active">
                     <div className="experience-box">
-                        <h3 className="section-subtitle">The Ambience</h3>
-                        <h2 className="section-title">An Immersive Escape</h2>
+                        <h3 className="section-subtitle">
+                            <span className="mask-reveal"><span>The Ambience</span></span>
+                        </h3>
+                        <h2 className="section-title">
+                            <span className="mask-reveal"><span>An Immersive Escape</span></span>
+                        </h2>
                         <p className="experience-text">
                             Step into a realm where deep charcoal tones meet warm, cinematic lighting. Our space is meticulously designed to offer privacy, elegance, and a multi-sensory journey. Whether it's an intimate dinner or a grand celebration, Fridah provides the perfect backdrop.
                         </p>

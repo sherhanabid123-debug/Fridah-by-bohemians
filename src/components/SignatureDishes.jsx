@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { useMagnetic } from '../hooks/useMagnetic';
 import './SignatureDishes.css';
 
 import imgSushi from '../assets/images/food_sushi.jpg';
@@ -30,6 +31,7 @@ const dishes = [
 
 const SignatureDishes = () => {
     const scrollContainerRef = useRef(null);
+    const magneticMenuRef = useMagnetic();
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(true);
 
@@ -83,12 +85,24 @@ const SignatureDishes = () => {
         }
     };
 
+    const handleMouseMove = (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        e.currentTarget.style.setProperty('--mouse-x', `${x}%`);
+        e.currentTarget.style.setProperty('--mouse-y', `${y}%`);
+    };
+
     return (
         <section id="dishes" className="signature-dishes section-padding">
             <div className="container">
                 <div className="section-header reveal">
-                    <h3 className="section-subtitle">Culinary Masterpieces</h3>
-                    <h2 className="section-title">Signature Dishes</h2>
+                    <h3 className="section-subtitle">
+                        <span className="mask-reveal"><span>Culinary Masterpieces</span></span>
+                    </h3>
+                    <h2 className="section-title">
+                        <span className="mask-reveal"><span>Signature Dishes</span></span>
+                    </h2>
                 </div>
 
                 <div className="carousel-wrapper">
@@ -105,7 +119,7 @@ const SignatureDishes = () => {
                                 className={`dish-card reveal`}
                                 style={{ transitionDelay: `${index * 0.2}s` }}
                             >
-                                <div className="dish-image">
+                                <div className="dish-image" onMouseMove={handleMouseMove}>
                                     <img
                                         src={dish.image}
                                         alt={dish.name}
@@ -130,7 +144,7 @@ const SignatureDishes = () => {
                 </div>
 
                 <div className="text-center mt-lg reveal">
-                    <a href="#menu" className="btn-secondary">View Full Menu</a>
+                    <a href="#menu" ref={magneticMenuRef} className="btn-secondary">View Full Menu</a>
                 </div>
             </div>
         </section>

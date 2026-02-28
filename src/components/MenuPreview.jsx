@@ -1,3 +1,4 @@
+import { useMagnetic } from '../hooks/useMagnetic';
 import './MenuPreview.css';
 
 const menuData = {
@@ -14,12 +15,18 @@ const menuData = {
 };
 
 const MenuPreview = () => {
+    const magneticMenuRef = useMagnetic();
+
     return (
         <section id="menu" className="menu-preview section-padding">
             <div className="container">
                 <div className="section-header reveal">
-                    <h3 className="section-subtitle">Discover Our Flavors</h3>
-                    <h2 className="section-title">A Curated Menu</h2>
+                    <h3 className="section-subtitle">
+                        <span className="mask-reveal"><span>Discover Our Flavors</span></span>
+                    </h3>
+                    <h2 className="section-title">
+                        <span className="mask-reveal"><span>A Curated Menu</span></span>
+                    </h2>
                 </div>
 
                 <div className="menu-container">
@@ -57,7 +64,7 @@ const MenuPreview = () => {
                 </div>
 
                 <div className="text-center mt-lg reveal">
-                    <a href="#" className="btn-primary">Download Full Menu</a>
+                    <a href="#" ref={magneticMenuRef} className="btn-primary">Download Full Menu</a>
                 </div>
             </div>
         </section>

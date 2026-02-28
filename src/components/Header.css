@@ -43,16 +43,35 @@
 }
 
 .nav-list a {
+    color: var(--color-white);
     font-family: var(--font-body);
     font-size: 0.85rem;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-white);
-    transition: color var(--transition-fast);
+    font-weight: 300;
+    transition: color var(--transition-normal);
+    padding: 0.5rem 0;
+    position: relative;
+    display: inline-block;
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: var(--color-gold);
+    transition: width var(--transition-normal);
 }
 
 .nav-list a:hover {
     color: var(--color-gold);
+}
+
+.nav-list a:hover::after {
+    width: 100%;
 }
 
 .nav-cta {

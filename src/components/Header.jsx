@@ -1,9 +1,17 @@
 import { useState, useEffect } from 'react';
+import { useMagnetic } from '../hooks/useMagnetic';
 import './Header.css';
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const magAbout = useMagnetic();
+    const magDishes = useMagnetic();
+    const magMenu = useMagnetic();
+    const magGallery = useMagnetic();
+    const magOrder = useMagnetic();
+    const magRes = useMagnetic();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -45,14 +53,14 @@ const Header = () => {
 
                 <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
                     <ul className="nav-list">
-                        <li><a href="#about" onClick={toggleMenu}>About</a></li>
-                        <li><a href="#dishes" onClick={toggleMenu}>Dishes</a></li>
-                        <li><a href="#menu" onClick={toggleMenu}>Menu</a></li>
-                        <li><a href="#gallery" onClick={toggleMenu}>Gallery</a></li>
+                        <li><a href="#about" ref={magAbout} onClick={toggleMenu}>About</a></li>
+                        <li><a href="#dishes" ref={magDishes} onClick={toggleMenu}>Dishes</a></li>
+                        <li><a href="#menu" ref={magMenu} onClick={toggleMenu}>Menu</a></li>
+                        <li><a href="#gallery" ref={magGallery} onClick={toggleMenu}>Gallery</a></li>
                     </ul>
                     <div className="header-actions">
-                        <a href="#order" className="nav-cta-solid" onClick={toggleMenu}>Order Now</a>
-                        <a href="#reservation" className="nav-cta" onClick={toggleMenu}>Reservations</a>
+                        <a href="#order" ref={magOrder} className="nav-cta-solid" onClick={toggleMenu}>Order Now</a>
+                        <a href="#reservation" ref={magRes} className="nav-cta" onClick={toggleMenu}>Reservations</a>
                     </div>
                 </nav>
             </div>

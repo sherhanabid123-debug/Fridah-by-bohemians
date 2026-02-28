@@ -1,0 +1,21 @@
+.decorative-svg {
+    width: 200px;
+    height: 20px;
+    margin: var(--spacing-sm) auto;
+    overflow: visible;
+}
+
+.decorative-svg.horizontal {
+    width: 300px;
+}
+
+.draw-path {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    transition: stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.5s;
+}
+
+.decorative-svg.active .draw-path {
+    stroke-dashoffset: 0;
+}

@@ -18,26 +18,55 @@ function App() {
       rootMargin: "0px 0px -50px 0px"
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // Add a tiny delay for more organic feel
           setTimeout(() => {
             entry.target.classList.add('active');
           }, 100);
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    const reveals = document.querySelectorAll('.reveal');
-    reveals.forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    return () => observer.disconnect();
+    // Scroll Progress & Blur Scrubbing
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollY / height) * 100;
+
+      const progressLine = document.querySelector('.scroll-progress-line');
+      if (progressLine) progressLine.style.width = `${progress}%`;
+
+      // Blur scrubbing for elements with .scrub-blur
+      document.querySelectorAll('.scrub-blur').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const center = window.innerHeight / 2;
+        const distFromCenter = Math.abs(rect.top + rect.height / 2 - center);
+        const blurAmount = Math.min(10, distFromCenter / 50);
+        el.style.filter = `blur(${blurAmount}px)`;
+        el.style.opacity = Math.max(0.3, 1 - distFromCenter / 1000);
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial call to set progress bar and blur on load
+    handleScroll();
+
+    return () => {
+      revealObserver.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
     <div className="app-root">
+      <div className="scroll-progress-container">
+        <div className="scroll-progress-line"></div>
+      </div>
       <div className="app-container">
         <Header />
         <Hero />
