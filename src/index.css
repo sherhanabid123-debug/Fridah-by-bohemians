@@ -272,6 +272,5 @@ img {
 
 /* Scrub Blur Typography */
 .scrub-blur {
-  transition: filter 0.3s ease-out, opacity 0.3s ease-out;
   will-change: filter, opacity;
 }

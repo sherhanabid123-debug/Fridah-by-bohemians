@@ -7,10 +7,10 @@ const About = () => {
         <section id="about" className="about section-padding">
             <div className="container about-container">
                 <div className="about-content reveal active">
-                    <h3 className="section-subtitle">
+                    <h3 className="section-subtitle scrub-blur">
                         <span className="mask-reveal"><span>Our Story</span></span>
                     </h3>
-                    <h2 className="section-title">
+                    <h2 className="section-title scrub-blur">
                         <span className="mask-reveal"><span>Where Culinary Art</span></span>
                         <span className="mask-reveal" style={{ transitionDelay: '0.1s' }}><span>Meets Bohemian Luxury</span></span>
                     </h2>

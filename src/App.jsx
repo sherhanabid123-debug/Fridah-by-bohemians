@@ -33,23 +33,41 @@ function App() {
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // Scroll Progress & Blur Scrubbing
+    let isTicking = false;
+
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollY / height) * 100;
+      if (!isTicking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const height = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = (scrollY / height) * 100;
 
-      const progressLine = document.querySelector('.scroll-progress-line');
-      if (progressLine) progressLine.style.width = `${progress}%`;
+          const progressLine = document.querySelector('.scroll-progress-line');
+          if (progressLine) progressLine.style.width = `${progress}%`;
 
-      // Blur scrubbing for elements with .scrub-blur
-      document.querySelectorAll('.scrub-blur').forEach(el => {
-        const rect = el.getBoundingClientRect();
-        const center = window.innerHeight / 2;
-        const distFromCenter = Math.abs(rect.top + rect.height / 2 - center);
-        const blurAmount = Math.min(10, distFromCenter / 50);
-        el.style.filter = `blur(${blurAmount}px)`;
-        el.style.opacity = Math.max(0.3, 1 - distFromCenter / 1000);
-      });
+          // Blur scrubbing for elements with .scrub-blur
+          document.querySelectorAll('.scrub-blur').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            const viewportCenter = window.innerHeight / 2;
+            const elementCenter = rect.top + rect.height / 2;
+            const distFromCenter = Math.abs(elementCenter - viewportCenter);
+
+            // Perfectly sharp in the middle 30% of the screen
+            const sharpZone = window.innerHeight * 0.15;
+            const distFromZone = Math.max(0, distFromCenter - sharpZone);
+
+            // Faster clarification: 0 blur within sharpZone, then scales up
+            // Using a slightly more aggressive scale for a "popping" focus feel
+            const blurAmount = Math.min(10, distFromZone / 15);
+            const opacityAmount = Math.max(0.4, 1 - distFromZone / 500);
+
+            el.style.filter = `blur(${blurAmount}px)`;
+            el.style.opacity = opacityAmount.toString();
+          });
+          isTicking = false;
+        });
+        isTicking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
