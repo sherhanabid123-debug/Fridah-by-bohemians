@@ -28,9 +28,6 @@ const Gallery = () => {
                             style={{ transitionDelay: `${(index % 3) * 0.1}s` }}
                         >
                             <img src={src} alt={`Fridah Gallery Image ${index + 1}`} />
-                            <div className="gallery-overlay">
-                                <span className="plus-icon">+</span>
-                            </div>
                         </div>
                     ))}
                 </div>
