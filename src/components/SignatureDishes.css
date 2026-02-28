@@ -146,7 +146,7 @@
         z-index: 10;
         pointer-events: auto;
         cursor: pointer;
-        transition: opacity var(--transition-normal), visibility var(--transition-normal);
+        transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
     .swipe-indicator.hidden {
