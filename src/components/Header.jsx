@@ -49,9 +49,11 @@ const Header = () => {
                         <li><a href="#dishes" onClick={toggleMenu}>Dishes</a></li>
                         <li><a href="#menu" onClick={toggleMenu}>Menu</a></li>
                         <li><a href="#gallery" onClick={toggleMenu}>Gallery</a></li>
-                        <li><a href="#order" className="nav-cta" onClick={toggleMenu}>Order Now</a></li>
-                        <li><a href="#reservation" className="nav-cta" onClick={toggleMenu}>Reservations</a></li>
                     </ul>
+                    <div className="header-actions">
+                        <a href="#order" className="nav-cta-solid" onClick={toggleMenu}>Order Now</a>
+                        <a href="#reservation" className="nav-cta" onClick={toggleMenu}>Reservations</a>
+                    </div>
                 </nav>
             </div>
         </header>
