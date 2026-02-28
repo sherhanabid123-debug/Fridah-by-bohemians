@@ -1,0 +1,70 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: var(--spacing-md) 0;
+    transition: all var(--transition-normal);
+}
+
+.header.scrolled {
+    padding: var(--spacing-sm) 0;
+    background-color: rgba(2, 2, 2, 0.7);
+    backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    letter-spacing: 0.2em;
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.nav-list a {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-white);
+    transition: color var(--transition-fast);
+}
+
+.nav-list a:hover {
+    color: var(--color-gold);
+}
+
+.nav-cta {
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 0.6rem 1.5rem;
+    color: var(--color-gold) !important;
+    transition: all var(--transition-normal) !important;
+    border-radius: 50px;
+}
+
+.nav-cta:hover {
+    background-color: var(--color-gold);
+    color: var(--color-black) !important;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+        /* Simplification for demo; would add hamburger normally */
+    }
+}
