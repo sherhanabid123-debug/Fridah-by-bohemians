@@ -145,8 +145,13 @@
         align-items: center;
         color: var(--color-gold);
         z-index: 10;
-        pointer-events: none;
+        pointer-events: auto;
+        cursor: pointer;
         animation: pulseRight 2s infinite ease-in-out;
+    }
+
+    .swipe-indicator:active {
+        background-color: rgba(212, 175, 55, 0.5);
     }
 
     @keyframes pulseRight {

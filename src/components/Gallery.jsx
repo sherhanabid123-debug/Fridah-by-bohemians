@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import './Gallery.css';
 import img1 from '../assets/images/outdoor_seating.jpg';
@@ -10,6 +11,17 @@ import img6 from '../assets/images/entrance.jpg';
 const galleryImages = [img3, img2, img4, img5, img1, img6];
 
 const Gallery = () => {
+    const scrollContainerRef = useRef(null);
+
+    const scrollRight = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({
+                left: window.innerWidth * 0.75, // Scroll by approx one card width
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
         <section id="gallery" className="gallery section-padding">
             <div className="container">
@@ -20,7 +32,7 @@ const Gallery = () => {
             </div>
 
             <div className="carousel-wrapper">
-                <div className="gallery-grid">
+                <div className="gallery-grid" ref={scrollContainerRef}>
                     {galleryImages.map((src, index) => (
                         <div
                             key={index}
@@ -31,7 +43,7 @@ const Gallery = () => {
                         </div>
                     ))}
                 </div>
-                <div className="swipe-indicator">
+                <div className="swipe-indicator clickable" onClick={scrollRight}>
                     <ChevronRight size={32} strokeWidth={1.5} />
                 </div>
             </div>

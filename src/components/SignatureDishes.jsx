@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import './SignatureDishes.css';
 
@@ -28,6 +29,17 @@ const dishes = [
 ];
 
 const SignatureDishes = () => {
+    const scrollContainerRef = useRef(null);
+
+    const scrollRight = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({
+                left: window.innerWidth * 0.85, // Scroll by approx one card width
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
         <section id="dishes" className="signature-dishes section-padding">
             <div className="container">
@@ -37,7 +49,7 @@ const SignatureDishes = () => {
                 </div>
 
                 <div className="carousel-wrapper">
-                    <div className="dishes-grid">
+                    <div className="dishes-grid" ref={scrollContainerRef}>
                         {dishes.map((dish, index) => (
                             <div
                                 key={dish.id}
@@ -60,7 +72,7 @@ const SignatureDishes = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="swipe-indicator">
+                    <div className="swipe-indicator clickable" onClick={scrollRight}>
                         <ChevronRight size={32} strokeWidth={1.5} />
                     </div>
                 </div>
