@@ -118,8 +118,37 @@ img {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 5rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    letter-spacing: 0.05em;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+  }
+
   .section-padding {
     padding: var(--spacing-lg) 0;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 0.85rem;
+    margin-bottom: var(--spacing-sm);
   }
 }
 
