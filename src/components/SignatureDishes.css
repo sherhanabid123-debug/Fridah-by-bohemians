@@ -86,6 +86,14 @@
     text-align: center;
 }
 
+.carousel-wrapper {
+    position: relative;
+}
+
+.swipe-indicator {
+    display: none;
+}
+
 @media (max-width: 992px) {
     .dishes-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -111,13 +119,51 @@
     }
 
     .dish-card {
-        min-width: 75vw;
+        min-width: 85vw;
         /* Leaves a peek of the next card */
         scroll-snap-align: center;
         flex-shrink: 0;
     }
 
     .dish-image {
-        height: 320px;
+        height: 400px;
+    }
+
+    .swipe-indicator {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        background-color: rgba(3, 3, 3, 0.7);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        color: var(--color-gold);
+        z-index: 10;
+        pointer-events: none;
+        animation: pulseRight 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseRight {
+        0% {
+            transform: translate(0, -50%);
+            opacity: 0.8;
+        }
+
+        50% {
+            transform: translate(10px, -50%);
+            opacity: 1;
+            border-color: var(--color-gold);
+        }
+
+        100% {
+            transform: translate(0, -50%);
+            opacity: 0.8;
+        }
     }
 }

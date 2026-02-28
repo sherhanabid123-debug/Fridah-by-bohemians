@@ -1,4 +1,4 @@
-import { MoveRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import './SignatureDishes.css';
 
 import imgSushi from '../assets/images/food_sushi.jpg';
@@ -35,29 +35,29 @@ const SignatureDishes = () => {
                     <h2 className="section-title">Signature Dishes</h2>
                 </div>
 
-                <div className="swipe-indicator mobile-only reveal">
-                    <span>Swipe</span>
-                    <MoveRight size={16} strokeWidth={1.5} />
-                </div>
-
-                <div className="dishes-grid">
-                    {dishes.map((dish, index) => (
-                        <div
-                            key={dish.id}
-                            className={`dish-card reveal`}
-                            style={{ transitionDelay: `${index * 0.2}s` }}
-                        >
-                            <div className="dish-image">
-                                <img src={dish.image} alt={dish.name} />
-                                <div className="dish-overlay">
-                                    <div className="dish-info">
-                                        <h4 className="dish-name">{dish.name}</h4>
-                                        <p className="dish-desc">{dish.description}</p>
+                <div className="carousel-wrapper">
+                    <div className="dishes-grid">
+                        {dishes.map((dish, index) => (
+                            <div
+                                key={dish.id}
+                                className={`dish-card reveal`}
+                                style={{ transitionDelay: `${index * 0.2}s` }}
+                            >
+                                <div className="dish-image">
+                                    <img src={dish.image} alt={dish.name} />
+                                    <div className="dish-overlay">
+                                        <div className="dish-info">
+                                            <h4 className="dish-name">{dish.name}</h4>
+                                            <p className="dish-desc">{dish.description}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
+                    <div className="swipe-indicator">
+                        <ChevronRight size={32} strokeWidth={1.5} />
+                    </div>
                 </div>
 
                 <div className="text-center mt-lg reveal">

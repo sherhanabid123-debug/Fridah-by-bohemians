@@ -1,4 +1,4 @@
-import { MoveRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import './Gallery.css';
 import img1 from '../assets/images/outdoor_seating.jpg';
 import img2 from '../assets/images/alleyway.jpg';
@@ -17,26 +17,26 @@ const Gallery = () => {
                     <h3 className="section-subtitle">Visual Journey</h3>
                     <h2 className="section-title">The Fridah Aesthetic</h2>
                 </div>
-
-                <div className="swipe-indicator mobile-only reveal">
-                    <span>Swipe</span>
-                    <MoveRight size={16} strokeWidth={1.5} />
-                </div>
             </div>
 
-            <div className="gallery-grid">
-                {galleryImages.map((src, index) => (
-                    <div
-                        key={index}
-                        className="gallery-item reveal"
-                        style={{ transitionDelay: `${(index % 3) * 0.1}s` }}
-                    >
-                        <img src={src} alt={`Fridah Gallery Image ${index + 1}`} />
-                        <div className="gallery-overlay">
-                            <span className="plus-icon">+</span>
+            <div className="carousel-wrapper">
+                <div className="gallery-grid">
+                    {galleryImages.map((src, index) => (
+                        <div
+                            key={index}
+                            className="gallery-item reveal"
+                            style={{ transitionDelay: `${(index % 3) * 0.1}s` }}
+                        >
+                            <img src={src} alt={`Fridah Gallery Image ${index + 1}`} />
+                            <div className="gallery-overlay">
+                                <span className="plus-icon">+</span>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
+                <div className="swipe-indicator">
+                    <ChevronRight size={32} strokeWidth={1.5} />
+                </div>
             </div>
         </section>
     );
