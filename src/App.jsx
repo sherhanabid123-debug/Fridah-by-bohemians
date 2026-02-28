@@ -30,7 +30,7 @@ function App() {
       });
     }, observerOptions);
 
-    const reveals = document.querySelectorAll('.reveal, .mask-reveal');
+    const reveals = document.querySelectorAll('.reveal');
     reveals.forEach(el => observer.observe(el));
 
     return () => observer.disconnect();
@@ -38,7 +38,6 @@ function App() {
 
   return (
     <div className="app-root">
-      <div className="grain-overlay" />
       <div className="app-container">
         <Header />
         <Hero />

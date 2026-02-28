@@ -5,13 +5,13 @@ const About = () => {
     return (
         <section id="about" className="about section-padding">
             <div className="container about-container">
-                <div className="about-content reveal">
+                <div className="about-content reveal active">
                     <h3 className="section-subtitle">Our Story</h3>
-                    <h2 className="section-title">Where Culinary Art Meets <span className="gold-sheen">Bohemian Luxury</span></h2>
-                    <p className="about-text scrub-text">
+                    <h2 className="section-title">Where Culinary Art Meets Bohemian Luxury</h2>
+                    <p className="about-text">
                         Situated in the heart of Whitefield, Bangalore, Fridah by Bohemians offers an escape from the ordinary. We blend the free-spirited essence of bohemian culture with an uncompromising standard of modern luxury dining.
                     </p>
-                    <p className="about-text scrub-text">
+                    <p className="about-text">
                         Our chef's philosophy is simple: source the finest global ingredients and transform them into artisanal multicuisine masterpieces. Every dish tells a story of passion, precision, and artistry.
                     </p>
 
@@ -31,8 +31,8 @@ const About = () => {
                     </div>
                 </div>
 
-                <div className="about-image reveal">
-                    <div className="image-wrapper mask-reveal">
+                <div className="about-image reveal active">
+                    <div className="image-wrapper">
                         <img
                             src={aboutImage}
                             alt="Fridah Restaurant Interior"
