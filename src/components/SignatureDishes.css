@@ -94,7 +94,27 @@
 
 @media (max-width: 768px) {
     .dishes-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: var(--spacing-sm);
+        padding-bottom: var(--spacing-sm);
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .dishes-grid::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari and Opera */
+    }
+
+    .dish-card {
+        min-width: 85vw;
+        /* Leaves a peek of the next card */
+        scroll-snap-align: center;
+        flex-shrink: 0;
     }
 
     .dish-image {

@@ -60,8 +60,28 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .gallery-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: var(--spacing-sm);
+        padding-bottom: var(--spacing-sm);
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .gallery-grid::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari and Opera */
+    }
+
+    .gallery-item {
+        min-width: 85vw;
+        /* Leaves a peek of the next image */
+        scroll-snap-align: center;
+        flex-shrink: 0;
     }
 }
