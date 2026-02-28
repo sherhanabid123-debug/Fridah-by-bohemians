@@ -76,6 +76,8 @@
     .hero {
         background-attachment: scroll;
         /* Disable parallax on mobile to fix disappearing image bug */
+        height: 85vh;
+        min-height: 500px;
     }
 
     .hero-actions {

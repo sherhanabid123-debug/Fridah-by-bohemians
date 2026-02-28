@@ -79,8 +79,8 @@
     }
 
     .gallery-item {
-        min-width: 85vw;
-        /* Leaves a peek of the next image */
+        min-width: 70vw;
+        /* Leaves a peek of the next image, but smaller size */
         scroll-snap-align: center;
         flex-shrink: 0;
     }

@@ -111,13 +111,13 @@
     }
 
     .dish-card {
-        min-width: 85vw;
+        min-width: 75vw;
         /* Leaves a peek of the next card */
         scroll-snap-align: center;
         flex-shrink: 0;
     }
 
     .dish-image {
-        height: 400px;
+        height: 320px;
     }
 }
