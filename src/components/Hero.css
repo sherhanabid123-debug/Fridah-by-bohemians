@@ -75,6 +75,7 @@
 @media (max-width: 768px) {
     .hero {
         background-attachment: scroll;
+        padding-top: 140px;
     }
 
     .hero-actions {
