@@ -6,23 +6,14 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-size: 110%;
+    background-size: cover;
     background-position: center;
     background-attachment: fixed;
     /* Parallax effect */
     overflow: hidden;
-    animation: cinematicZoom 40s infinite alternate ease-in-out;
 }
 
-@keyframes cinematicZoom {
-    from {
-        background-size: 110%;
-    }
 
-    to {
-        background-size: 130%;
-    }
-}
 
 .hero-overlay {
     position: absolute;

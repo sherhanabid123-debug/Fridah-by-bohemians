@@ -4,7 +4,7 @@ import expImage from '../assets/images/experience_balcony.jpg';
 const Experience = () => {
     return (
         <section id="experience" className="experience">
-            <div className="experience-parallax" style={{ backgroundImage: `url(${expImage})` }}>
+            <div className="experience-parallax mask-reveal" style={{ backgroundImage: `url(${expImage})` }}>
                 <div className="experience-overlay"></div>
                 <div className="experience-content container reveal active">
                     <div className="experience-box">

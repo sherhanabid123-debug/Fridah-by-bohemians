@@ -9,7 +9,6 @@ import Gallery from './components/Gallery';
 import LocationMap from './components/LocationMap';
 import Reservation from './components/Reservation';
 import Footer from './components/Footer';
-import CustomCursor from './components/CustomCursor';
 
 function App() {
   // Enhanced scroll reveal logic
@@ -31,7 +30,7 @@ function App() {
       });
     }, observerOptions);
 
-    const reveals = document.querySelectorAll('.reveal');
+    const reveals = document.querySelectorAll('.reveal, .mask-reveal');
     reveals.forEach(el => observer.observe(el));
 
     return () => observer.disconnect();
@@ -40,7 +39,6 @@ function App() {
   return (
     <div className="app-root">
       <div className="grain-overlay" />
-      <CustomCursor />
       <div className="app-container">
         <Header />
         <Hero />

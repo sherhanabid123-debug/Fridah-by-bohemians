@@ -88,7 +88,7 @@ const SignatureDishes = () => {
             <div className="container">
                 <div className="section-header reveal">
                     <h3 className="section-subtitle">Culinary Masterpieces</h3>
-                    <h2 className="section-title">Signature Dishes</h2>
+                    <h2 className="section-title"><span className="gold-sheen">Signature Dishes</span></h2>
                 </div>
 
                 <div className="carousel-wrapper">
@@ -105,7 +105,7 @@ const SignatureDishes = () => {
                                 className={`dish-card reveal`}
                                 style={{ transitionDelay: `${index * 0.2}s` }}
                             >
-                                <div className="dish-image">
+                                <div className="dish-image mask-reveal">
                                     <img
                                         src={dish.image}
                                         alt={dish.name}

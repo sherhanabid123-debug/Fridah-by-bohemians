@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useMagnetic } from '../hooks/useMagnetic';
 import './Header.css';
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const orderBtnRef = useMagnetic(0.2);
+    const reserveBtnRef = useMagnetic(0.2);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -51,8 +54,8 @@ const Header = () => {
                         <li><a href="#gallery" onClick={toggleMenu}>Gallery</a></li>
                     </ul>
                     <div className="header-actions">
-                        <a href="#order" className="nav-cta-solid" onClick={toggleMenu}>Order Now</a>
-                        <a href="#reservation" className="nav-cta" onClick={toggleMenu}>Reservations</a>
+                        <a href="#order" className="nav-cta-solid" onClick={toggleMenu} ref={orderBtnRef}>Order Now</a>
+                        <a href="#reservation" className="nav-cta" onClick={toggleMenu} ref={reserveBtnRef}>Reservations</a>
                     </div>
                 </nav>
             </div>

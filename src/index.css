@@ -220,6 +220,59 @@ img {
   transform: translateY(0);
 }
 
+/* Cinematic Mask Reveal */
+.mask-reveal {
+  position: relative;
+  overflow: hidden;
+  clip-path: inset(0 100% 0 0);
+  /* Start fully hidden from the right */
+  transition: clip-path 1.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.mask-reveal.active {
+  clip-path: inset(0 0 0 0);
+  /* Expand to full width */
+}
+
+/* Scroll-Triggered Text Scrubbing */
+.scrub-text {
+  color: rgba(255, 255, 255, 0.2);
+  transition: color 1s ease, transform 1s ease;
+  transform: translateY(10px);
+}
+
+.reveal.active .scrub-text,
+.scrub-text.active {
+  color: rgba(255, 255, 255, 0.85);
+  transform: translateY(0);
+}
+
+/* Branded Gold Heading Sheen */
+.gold-sheen {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  background: linear-gradient(120deg,
+      rgba(212, 175, 55, 0) 30%,
+      rgba(212, 175, 55, 1) 50%,
+      rgba(212, 175, 55, 0) 70%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 6s infinite linear;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
+}
+
 /* Cinematic Grain */
 .grain-overlay {
   position: fixed;
@@ -288,15 +341,5 @@ img {
 
   90% {
     transform: translate(-10%, 10%);
-  }
-}
-
-/* Hide default cursor globally */
-@media (pointer: fine) {
-
-  body,
-  a,
-  button {
-    cursor: none !important;
   }
 }
