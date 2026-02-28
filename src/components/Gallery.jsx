@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import './Gallery.css';
 import img1 from '../assets/images/outdoor_seating.jpg';
@@ -12,20 +12,45 @@ const galleryImages = [img3, img2, img4, img5, img1, img6];
 
 const Gallery = () => {
     const scrollContainerRef = useRef(null);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
 
-    const scrollRight = () => {
+    const checkScroll = () => {
         if (scrollContainerRef.current) {
-            scrollContainerRef.current.scrollBy({
-                left: window.innerWidth * 0.75, // Scroll by approx one card width
-                behavior: 'smooth'
-            });
+            const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+            setCanScrollLeft(scrollLeft > 10);
+            setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
         }
     };
 
-    const scrollLeft = () => {
+    useEffect(() => {
+        const container = scrollContainerRef.current;
+        if (container) {
+            container.addEventListener('scroll', checkScroll);
+            checkScroll();
+            window.addEventListener('resize', checkScroll);
+        }
+        return () => {
+            if (container) container.removeEventListener('scroll', checkScroll);
+            window.removeEventListener('resize', checkScroll);
+        };
+    }, []);
+
+    const scroll = (direction) => {
         if (scrollContainerRef.current) {
-            scrollContainerRef.current.scrollBy({
-                left: -(window.innerWidth * 0.75),
+            const container = scrollContainerRef.current;
+            const firstItem = container.firstElementChild;
+            if (!firstItem) return;
+
+            const itemWidth = firstItem.offsetWidth;
+            const gap = parseInt(window.getComputedStyle(container).gap) || 0;
+            const totalWidth = itemWidth + gap;
+
+            const currentIndex = Math.round(container.scrollLeft / totalWidth);
+            const targetIndex = direction === 'right' ? currentIndex + 1 : currentIndex - 1;
+
+            container.scrollTo({
+                left: targetIndex * totalWidth,
                 behavior: 'smooth'
             });
         }
@@ -41,7 +66,10 @@ const Gallery = () => {
             </div>
 
             <div className="carousel-wrapper">
-                <div className="swipe-indicator left clickable" onClick={scrollLeft}>
+                <div
+                    className={`swipe-indicator left clickable ${canScrollLeft ? 'visible' : 'hidden'}`}
+                    onClick={() => scroll('left')}
+                >
                     <ChevronLeft size={32} strokeWidth={1.5} />
                 </div>
                 <div className="gallery-grid" ref={scrollContainerRef}>
@@ -55,7 +83,10 @@ const Gallery = () => {
                         </div>
                     ))}
                 </div>
-                <div className="swipe-indicator right clickable" onClick={scrollRight}>
+                <div
+                    className={`swipe-indicator right clickable ${canScrollRight ? 'visible' : 'hidden'}`}
+                    onClick={() => scroll('right')}
+                >
                     <ChevronRight size={32} strokeWidth={1.5} />
                 </div>
             </div>
