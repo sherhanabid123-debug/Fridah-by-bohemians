@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 import './Gallery.css';
 import img1 from '../assets/images/outdoor_seating.jpg';
 import img2 from '../assets/images/alleyway.jpg';
@@ -22,6 +22,15 @@ const Gallery = () => {
         }
     };
 
+    const scrollLeft = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({
+                left: -(window.innerWidth * 0.75),
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
         <section id="gallery" className="gallery section-padding">
             <div className="container">
@@ -32,6 +41,9 @@ const Gallery = () => {
             </div>
 
             <div className="carousel-wrapper">
+                <div className="swipe-indicator left clickable" onClick={scrollLeft}>
+                    <ChevronLeft size={32} strokeWidth={1.5} />
+                </div>
                 <div className="gallery-grid" ref={scrollContainerRef}>
                     {galleryImages.map((src, index) => (
                         <div
@@ -43,7 +55,7 @@ const Gallery = () => {
                         </div>
                     ))}
                 </div>
-                <div className="swipe-indicator clickable" onClick={scrollRight}>
+                <div className="swipe-indicator right clickable" onClick={scrollRight}>
                     <ChevronRight size={32} strokeWidth={1.5} />
                 </div>
             </div>

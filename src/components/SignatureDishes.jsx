@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 import './SignatureDishes.css';
 
 import imgSushi from '../assets/images/food_sushi.jpg';
@@ -40,6 +40,15 @@ const SignatureDishes = () => {
         }
     };
 
+    const scrollLeft = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({
+                left: -(window.innerWidth * 0.85),
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
         <section id="dishes" className="signature-dishes section-padding">
             <div className="container">
@@ -49,6 +58,9 @@ const SignatureDishes = () => {
                 </div>
 
                 <div className="carousel-wrapper">
+                    <div className="swipe-indicator left clickable" onClick={scrollLeft}>
+                        <ChevronLeft size={32} strokeWidth={1.5} />
+                    </div>
                     <div className="dishes-grid" ref={scrollContainerRef}>
                         {dishes.map((dish, index) => (
                             <div
@@ -72,7 +84,7 @@ const SignatureDishes = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="swipe-indicator clickable" onClick={scrollRight}>
+                    <div className="swipe-indicator right clickable" onClick={scrollRight}>
                         <ChevronRight size={32} strokeWidth={1.5} />
                     </div>
                 </div>
