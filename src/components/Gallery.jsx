@@ -18,8 +18,8 @@ const Gallery = () => {
     const checkScroll = () => {
         if (scrollContainerRef.current) {
             const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-            setCanScrollLeft(scrollLeft > 10);
-            setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
+            setCanScrollLeft(scrollLeft > 5);
+            setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 5);
         }
     };
 
@@ -27,7 +27,7 @@ const Gallery = () => {
         const container = scrollContainerRef.current;
         if (container) {
             container.addEventListener('scroll', checkScroll);
-            checkScroll();
+            setTimeout(checkScroll, 100);
             window.addEventListener('resize', checkScroll);
         }
         return () => {
@@ -47,12 +47,17 @@ const Gallery = () => {
             const totalWidth = itemWidth + gap;
 
             const currentIndex = Math.round(container.scrollLeft / totalWidth);
-            const targetIndex = direction === 'right' ? currentIndex + 1 : currentIndex - 1;
+            let targetIndex = direction === 'right' ? currentIndex + 1 : currentIndex - 1;
+
+            targetIndex = Math.max(0, Math.min(targetIndex, galleryImages.length - 1));
 
             container.scrollTo({
                 left: targetIndex * totalWidth,
                 behavior: 'smooth'
             });
+
+            setCanScrollLeft(targetIndex > 0);
+            setCanScrollRight(targetIndex < galleryImages.length - 1);
         }
     };
 

@@ -36,8 +36,9 @@ const SignatureDishes = () => {
     const checkScroll = () => {
         if (scrollContainerRef.current) {
             const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-            setCanScrollLeft(scrollLeft > 10);
-            setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
+            // Use a very small buffer (1px) for precision
+            setCanScrollLeft(scrollLeft > 5);
+            setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 5);
         }
     };
 
@@ -46,8 +47,7 @@ const SignatureDishes = () => {
         if (container) {
             container.addEventListener('scroll', checkScroll);
             // Initial check
-            checkScroll();
-            // Check on resize
+            setTimeout(checkScroll, 100);
             window.addEventListener('resize', checkScroll);
         }
         return () => {
@@ -66,14 +66,20 @@ const SignatureDishes = () => {
             const gap = parseInt(window.getComputedStyle(container).gap) || 0;
             const totalWidth = itemWidth + gap;
 
-            // Calculate current index based on scroll position
             const currentIndex = Math.round(container.scrollLeft / totalWidth);
-            const targetIndex = direction === 'right' ? currentIndex + 1 : currentIndex - 1;
+            let targetIndex = direction === 'right' ? currentIndex + 1 : currentIndex - 1;
+
+            // Clamp target index
+            targetIndex = Math.max(0, Math.min(targetIndex, dishes.length - 1));
 
             container.scrollTo({
                 left: targetIndex * totalWidth,
                 behavior: 'smooth'
             });
+
+            // Proactively update arrows based on target
+            setCanScrollLeft(targetIndex > 0);
+            setCanScrollRight(targetIndex < dishes.length - 1);
         }
     };
 
