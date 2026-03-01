@@ -98,9 +98,6 @@ const Gallery = () => {
                             onMouseMove={handleMouseMove}
                         >
                             <img src={src} alt={`Fridah Gallery Image ${index + 1}`} />
-                            <div className="gallery-overlay">
-                                <span>VIEW</span>
-                            </div>
                         </div>
                     ))}
                 </div>
