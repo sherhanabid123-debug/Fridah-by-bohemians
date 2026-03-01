@@ -145,6 +145,10 @@
         flex-shrink: 0;
     }
 
+    .text-center.mt-lg {
+        margin-bottom: var(--spacing-md);
+    }
+
     .dish-image {
         height: 350px;
     }
