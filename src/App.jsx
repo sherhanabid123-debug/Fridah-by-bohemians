@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,8 +9,21 @@ import Gallery from './components/Gallery';
 import LocationMap from './components/LocationMap';
 import Reservation from './components/Reservation';
 import Footer from './components/Footer';
+import Preloader from './components/Preloader';
 
 function App() {
+  const [isAppLoaded, setIsAppLoaded] = useState(false);
+
+  // Lock scroll while preloading
+  useEffect(() => {
+    if (!isAppLoaded) {
+      document.body.style.overflow = 'hidden';
+      // Force scroll to top on reload so preloader covers hero
+      window.scrollTo(0, 0);
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isAppLoaded]);
   // Enhanced scroll reveal logic
   useEffect(() => {
     const observerOptions = {
@@ -62,23 +75,27 @@ function App() {
   }, []);
 
   return (
-    <div className="app-root">
-      <div className="scroll-progress-container">
-        <div className="scroll-progress-line"></div>
+    <>
+      <Preloader onLoadingComplete={() => setIsAppLoaded(true)} />
+
+      <div className={`app-root ${isAppLoaded ? 'app-ready' : ''}`} style={{ opacity: isAppLoaded ? 1 : 0, transition: 'opacity 0.8s ease-in' }}>
+        <div className="scroll-progress-container">
+          <div className="scroll-progress-line"></div>
+        </div>
+        <div className="app-container">
+          <Header />
+          <Hero />
+          <About />
+          <SignatureDishes />
+          <Experience />
+          <MenuPreview />
+          <Gallery />
+          <LocationMap />
+          <Reservation />
+          <Footer />
+        </div>
       </div>
-      <div className="app-container">
-        <Header />
-        <Hero />
-        <About />
-        <SignatureDishes />
-        <Experience />
-        <MenuPreview />
-        <Gallery />
-        <LocationMap />
-        <Reservation />
-        <Footer />
-      </div>
-    </div>
+    </>
   );
 }
 
