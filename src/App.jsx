@@ -10,6 +10,7 @@ import LocationMap from './components/LocationMap';
 import Reservation from './components/Reservation';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
+import Lenis from 'lenis';
 
 function App() {
   const [isAppLoaded, setIsAppLoaded] = useState(false);
@@ -24,6 +25,32 @@ function App() {
       document.body.style.overflow = '';
     }
   }, [isAppLoaded]);
+  // Initialize Lenis Smooth Scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing for premium feel
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   // Enhanced scroll reveal logic
   useEffect(() => {
     const observerOptions = {
