@@ -10,7 +10,7 @@ const Preloader = ({ onLoadingComplete }) => {
         // Start the text animation shortly after mount
         const animationTimer = setTimeout(() => {
             setStartAnimation(true);
-        }, 100);
+        }, 50);
 
         // Define total loading time (allows animations to finish)
         const loadingTimer = setTimeout(() => {
@@ -19,9 +19,9 @@ const Preloader = ({ onLoadingComplete }) => {
             // Notify parent component after fade out transition completes
             setTimeout(() => {
                 if (onLoadingComplete) onLoadingComplete();
-            }, 600); // Matches CSS transition time
+            }, 300); // Matches CSS transition time
 
-        }, 1200); // 1.2 seconds total preloader screen time
+        }, 600); // 0.6 seconds total preloader screen time
 
         return () => {
             clearTimeout(animationTimer);
@@ -38,7 +38,7 @@ const Preloader = ({ onLoadingComplete }) => {
                             key={index}
                             className={`preloader-char ${startAnimation ? 'animate' : ''}`}
                             style={{
-                                animationDelay: `${index * 0.05}s`,
+                                animationDelay: `${index * 0.02}s`,
                                 paddingRight: char === ' ' ? '10px' : '0'
                             }}
                         >
