@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -14,17 +14,24 @@ import Lenis from 'lenis';
 
 function App() {
   const [isAppLoaded, setIsAppLoaded] = useState(false);
+  const [lenisInstance, setLenisInstance] = useState(null);
 
-  // Lock scroll while preloading
+  const handleLoadingComplete = useCallback(() => {
+    setIsAppLoaded(true);
+  }, []);
+
+  // Lock scroll while preloading using Lenis if available
   useEffect(() => {
-    if (!isAppLoaded) {
-      document.body.style.overflow = 'hidden';
-      // Force scroll to top on reload so preloader covers hero
-      window.scrollTo(0, 0);
-    } else {
-      document.body.style.overflow = '';
+    if (lenisInstance) {
+      if (!isAppLoaded) {
+        window.scrollTo(0, 0);
+        lenisInstance.stop();
+      } else {
+        lenisInstance.start();
+      }
     }
-  }, [isAppLoaded]);
+  }, [isAppLoaded, lenisInstance]);
+
   // Initialize Lenis Smooth Scrolling
   useEffect(() => {
     const lenis = new Lenis({
@@ -39,15 +46,20 @@ function App() {
       infinite: false,
     });
 
+    setLenisInstance(lenis);
+
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
+      setLenisInstance(null);
     };
   }, []);
 
@@ -103,9 +115,9 @@ function App() {
 
   return (
     <>
-      <Preloader onLoadingComplete={() => setIsAppLoaded(true)} />
+      <Preloader onLoadingComplete={handleLoadingComplete} />
 
-      <div className={`app-root ${isAppLoaded ? 'app-ready' : ''}`} style={{ opacity: isAppLoaded ? 1 : 0, transition: 'opacity 0.8s ease-in' }}>
+      <div className={`app-root ${isAppLoaded ? 'app-ready' : ''}`}>
         <div className="scroll-progress-container">
           <div className="scroll-progress-line"></div>
         </div>
