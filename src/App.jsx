@@ -44,6 +44,8 @@ function App() {
       smoothTouch: false,
       touchMultiplier: 2,
       infinite: false,
+    });
+
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setLenisInstance(lenis);
 
