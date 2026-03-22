@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useMagnetic } from '../hooks/useMagnetic';
 import './MenuPreview.css';
+import FullMenuModal from './FullMenuModal';
 
 const menuData = {
     starters: [
@@ -16,6 +18,7 @@ const menuData = {
 
 const MenuPreview = () => {
     const magneticMenuRef = useMagnetic();
+    const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
 
     return (
         <section id="menu" className="menu-preview section-padding">
@@ -64,9 +67,10 @@ const MenuPreview = () => {
                 </div>
 
                 <div className="text-center mt-lg reveal">
-                    <a href="#" ref={magneticMenuRef} className="btn-primary">Download Full Menu</a>
+                    <a href="#full-menu" ref={magneticMenuRef} className="btn-primary" onClick={(e) => { e.preventDefault(); setIsFullMenuOpen(true); }}>View Full Menu</a>
                 </div>
             </div>
+            <FullMenuModal isOpen={isFullMenuOpen} onClose={() => setIsFullMenuOpen(false)} />
         </section>
     );
 };

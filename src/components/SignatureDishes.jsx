@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { useMagnetic } from '../hooks/useMagnetic';
 import './SignatureDishes.css';
+import FullMenuModal from './FullMenuModal';
 
 import imgSushi from '../assets/images/food_sushi.jpg';
 import imgDrink from '../assets/images/food_drink.jpg';
@@ -34,6 +35,7 @@ const SignatureDishes = () => {
     const magneticMenuRef = useMagnetic();
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(true);
+    const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
 
     const checkScroll = () => {
         if (scrollContainerRef.current) {
@@ -144,9 +146,10 @@ const SignatureDishes = () => {
                 </div>
 
                 <div className="text-center mt-lg reveal">
-                    <a href="#menu" ref={magneticMenuRef} className="btn-secondary">View Full Menu</a>
+                    <a href="#full-menu" ref={magneticMenuRef} className="btn-secondary" onClick={(e) => { e.preventDefault(); setIsFullMenuOpen(true); }}>View Full Menu</a>
                 </div>
             </div>
+            <FullMenuModal isOpen={isFullMenuOpen} onClose={() => setIsFullMenuOpen(false)} />
         </section>
     );
 };

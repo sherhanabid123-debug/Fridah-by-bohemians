@@ -1,0 +1,298 @@
+/* src/components/FullMenuModal.css */
+.full-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(3, 3, 3, 0.85);
+    backdrop-filter: blur(15px);
+    z-index: 100000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn var(--transition-normal) forwards;
+}
+
+.full-menu-content {
+    background: #0f0e0d;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    width: 95%;
+    max-width: 1000px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(30px);
+    opacity: 0;
+    animation: modalSlideIn var(--transition-normal) 0.1s forwards;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 175, 55, 0.1);
+}
+
+.full-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
+}
+
+.full-menu-title {
+    font-size: 2rem;
+    color: var(--color-gold);
+    margin: 0;
+}
+
+.full-menu-close {
+    background: transparent;
+    border: none;
+    color: var(--color-gold);
+    cursor: pointer;
+    transition: transform var(--transition-fast), color var(--transition-fast);
+    padding: 0.5rem;
+    display: flex;
+}
+
+.main-category-tabs {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.3rem;
+    border-radius: 50px;
+}
+
+.main-tab {
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    padding: 0.6rem 2rem;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.main-tab.active {
+    background: var(--color-gold);
+    color: var(--color-black);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.full-menu-close:hover {
+    transform: rotate(90deg) scale(1.1);
+    color: var(--color-white);
+}
+
+.menu-categories-nav {
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem var(--spacing-md);
+    gap: 0.8rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    background: rgba(3, 3, 3, 0.4);
+    flex-shrink: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior-x: contain;
+}
+
+.menu-categories-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.menu-category-pill {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: var(--color-white);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.menu-category-pill:hover, .menu-category-pill:active {
+    background: var(--color-gold);
+    color: var(--color-black);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.full-menu-body {
+    padding: var(--spacing-md);
+    overflow-y: auto;
+    flex-grow: 1;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Scrollbar for Modal Body */
+.full-menu-body::-webkit-scrollbar {
+    width: 8px;
+}
+.full-menu-body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+.full-menu-body::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.4);
+    border-radius: 4px;
+}
+.full-menu-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.8);
+}
+
+.menu-table-section {
+    margin-bottom: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.02);
+    padding: var(--spacing-sm);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.menu-table-category {
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    border-bottom: 1px dotted rgba(212, 175, 55, 0.4);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+}
+
+.menu-table th, .menu-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.menu-table th {
+    font-family: var(--font-heading);
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.menu-table tr:hover td {
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.item-name {
+    color: var(--color-white);
+    font-weight: 500;
+    width: 35%;
+}
+
+.item-desc {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    width: 45%;
+}
+
+.item-price {
+    color: var(--color-gold);
+    font-weight: 600;
+    width: 20%;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.mobile-desc {
+    display: none;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 4px;
+}
+
+.menu-extras {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.extras-title {
+    font-size: 1.1rem;
+    color: var(--color-off-white);
+    margin-bottom: 0.8rem;
+    font-family: var(--font-heading);
+}
+
+.extras-table td {
+    border-bottom: none;
+    padding: 0.5rem 1rem;
+}
+
+@media (max-width: 768px) {
+    .full-menu-title {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .full-menu-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    .main-category-tabs {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+    
+    .mobile-desc {
+        display: block;
+    }
+    
+    .item-name {
+        width: 70%;
+    }
+    
+    .item-price {
+        width: 30%;
+    }
+    
+    .full-menu-header {
+        padding: 1rem;
+    }
+    
+    .full-menu-title {
+        font-size: 1.5rem;
+    }
+    
+    .full-menu-body {
+        padding: 1rem;
+    }
+    
+    .menu-table th, .menu-table td {
+        padding: 0.8rem 0.5rem;
+    }
+}
