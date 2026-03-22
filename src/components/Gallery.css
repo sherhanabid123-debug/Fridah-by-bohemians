@@ -11,6 +11,13 @@
     cursor: pointer;
     border-radius: 4px;
     background: #000;
+    transition: box-shadow var(--transition-normal), transform var(--transition-normal), z-index 0s;
+}
+
+.gallery-item:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 175, 55, 0.1);
+    transform: translateY(-5px) scale(1.02);
+    z-index: 10;
 }
 
 .gallery-item::after {
@@ -41,7 +48,7 @@
 }
 
 .gallery-item:hover img {
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
 .carousel-wrapper {
