@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useMagnetic } from '../hooks/useMagnetic';
 import './Header.css';
+import OrderModal from './OrderModal';
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
 
     const magAbout = useMagnetic();
     const magDishes = useMagnetic();
@@ -59,11 +61,23 @@ const Header = () => {
                         <li><a href="#gallery" ref={magGallery} onClick={toggleMenu}>Gallery</a></li>
                     </ul>
                     <div className="header-actions">
-                        <a href="#order" ref={magOrder} className="nav-cta-solid" onClick={toggleMenu}>Order Now</a>
+                        <a 
+                            href="#order" 
+                            ref={magOrder} 
+                            className="nav-cta-solid" 
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (isMobileMenuOpen) toggleMenu();
+                                setIsOrderModalOpen(true);
+                            }}
+                        >
+                            Order Now
+                        </a>
                         <a href="#reservation" ref={magRes} className="nav-cta" onClick={toggleMenu}>Reservations</a>
                     </div>
                 </nav>
             </div>
+            <OrderModal isOpen={isOrderModalOpen} onClose={() => setIsOrderModalOpen(false)} />
         </header>
     );
 };

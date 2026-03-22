@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import './Reservation.css';
 import resImage from '../assets/images/bar_area.jpg';
+import OrderModal from './OrderModal';
 
 const Reservation = () => {
+    const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
     return (
         <section id="reservation" className="reservation section-padding">
             <div className="container">
@@ -23,16 +26,24 @@ const Reservation = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-primary mt-md"
-                            style={{ display: 'inline-block' }}
+                            style={{ display: 'inline-block', marginRight: '1rem' }}
                         >
                             Request a Reservation
                         </a>
+                        <button
+                            className="btn-secondary mt-md"
+                            style={{ display: 'inline-block' }}
+                            onClick={() => setIsOrderModalOpen(true)}
+                        >
+                            Order Now
+                        </button>
                     </div>
                     <div className="reservation-image">
                         <img src={resImage} alt="Private Dining" />
                     </div>
                 </div>
             </div>
+            <OrderModal isOpen={isOrderModalOpen} onClose={() => setIsOrderModalOpen(false)} />
         </section>
     );
 };

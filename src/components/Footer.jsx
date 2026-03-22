@@ -1,4 +1,5 @@
 import { Instagram } from 'lucide-react';
+import { SiZomato, SiSwiggy } from 'react-icons/si';
 import './Footer.css';
 
 const Footer = () => {
@@ -11,6 +12,12 @@ const Footer = () => {
                     <div className="footer-social">
                         <a href="https://www.instagram.com/house_of_fridah/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <Instagram size={24} strokeWidth={1.5} />
+                        </a>
+                        <a href="https://www.zomato.com/bangalore/fridah-by-bohemians-mahadevapura-bangalore" target="_blank" rel="noopener noreferrer" aria-label="Zomato">
+                            <SiZomato size={24} />
+                        </a>
+                        <a href="https://www.swiggy.com/restaurants/fridah-by-bohemians-whitefield-bangalore-1344106/dineout" target="_blank" rel="noopener noreferrer" aria-label="Swiggy">
+                            <SiSwiggy size={24} />
                         </a>
                     </div>
                 </div>

@@ -1,0 +1,130 @@
+/* src/components/OrderModal.css */
+.order-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(3, 3, 3, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn var(--transition-normal) forwards;
+}
+
+.order-modal-content {
+    background: linear-gradient(145deg, rgba(20, 20, 20, 0.95), rgba(10, 10, 10, 0.98));
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    position: relative;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+    animation: modalSlideIn var(--transition-normal) 0.1s forwards;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.1);
+}
+
+.order-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--color-gold);
+    cursor: pointer;
+    transition: transform var(--transition-fast), color var(--transition-fast);
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-modal-close:hover {
+    transform: rotate(90deg) scale(1.1);
+    color: var(--color-white);
+}
+
+.order-modal-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-gold);
+}
+
+.order-modal-subtitle {
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+}
+
+.order-modal-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.order-modal-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all var(--transition-fast);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.order-modal-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.order-modal-btn:hover::before {
+    transform: translateX(100%);
+}
+
+.order-modal-btn:hover {
+    color: var(--color-gold);
+    border-color: var(--color-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.platform-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
