@@ -8,7 +8,7 @@ const CTASection = () => {
             <div className="container">
                 <div className="cta-content reveal active">
                     <h2 className="cta-title">Plan Your Experience at Fridah</h2>
-                    <p className="cta-subtitle">Secure your table, host an unforgettable event, or speak with our concierge.</p>
+                    <p className="cta-subtitle">Secure your table, host an unforgettable event, or speak with our team.</p>
                     
                     <div className="cta-actions">
                         <a href="#reservation" className="btn-primary cta-btn">
