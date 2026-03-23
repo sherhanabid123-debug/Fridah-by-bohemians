@@ -14,6 +14,10 @@ import CTASection from './components/CTASection';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
 import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const [isAppLoaded, setIsAppLoaded] = useState(false);
@@ -52,16 +56,15 @@ function App() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setLenisInstance(lenis);
 
-    let rafId;
-    function raf(time) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
+    lenis.on('scroll', ScrollTrigger.update);
 
-    rafId = requestAnimationFrame(raf);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
-      cancelAnimationFrame(rafId);
+      gsap.ticker.remove((time) => lenis.raf(time * 1000));
       lenis.destroy();
       setLenisInstance(null);
     };
