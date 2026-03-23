@@ -43,8 +43,8 @@ const zones = [
 const ExperienceZones = () => {
     return (
         <section className="immersive-zones">
-            {zones.map((zone) => (
-                <div id={zone.id} key={zone.id} className={`immersive-zone theme-${zone.theme}`}>
+            {zones.map((zone, index) => (
+                <div id={zone.id} key={zone.id} className={`immersive-zone theme-${zone.theme}`} style={{ zIndex: index + 1 }}>
                     <div className="zone-media">
                         <div className="zone-media-overlay"></div>
                         <img src={zone.image} alt={zone.title} />

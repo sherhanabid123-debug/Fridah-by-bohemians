@@ -66,11 +66,13 @@
     transition: width var(--transition-normal);
 }
 
-.nav-list a:hover {
+.nav-list a:hover,
+.nav-list a.active {
     color: var(--color-gold);
 }
 
-.nav-list a:hover::after {
+.nav-list a:hover::after,
+.nav-list a.active::after {
     width: 100%;
 }
 
