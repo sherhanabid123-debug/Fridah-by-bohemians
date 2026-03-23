@@ -1,13 +1,14 @@
 import { useEffect, useState, useCallback } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
-import SignatureDishes from './components/SignatureDishes';
-import Experience from './components/Experience';
-import MenuPreview from './components/MenuPreview';
-import Gallery from './components/Gallery';
+import Realms from './components/Realms';
+import ExperienceZones from './components/ExperienceZones';
+import DiningPackages from './components/DiningPackages';
+import LiquorPackages from './components/LiquorPackages';
+import Addons from './components/Addons';
 import LocationMap from './components/LocationMap';
 import Reservation from './components/Reservation';
+import CTASection from './components/CTASection';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
 import Lenis from 'lenis';
@@ -126,13 +127,14 @@ function App() {
         <div className="app-container">
           <Header />
           <Hero />
-          <About />
-          <SignatureDishes />
-          <Experience />
-          <MenuPreview />
-          <Gallery />
+          <Realms />
+          <ExperienceZones />
+          <DiningPackages />
+          <LiquorPackages />
+          <Addons />
           <LocationMap />
           <Reservation />
+          <CTASection />
           <Footer />
         </div>
       </div>

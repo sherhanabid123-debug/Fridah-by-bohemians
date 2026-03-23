@@ -1,0 +1,126 @@
+.immersive-zones {
+    position: relative;
+    background: var(--color-black);
+    z-index: 2;
+}
+
+.immersive-zone {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end; 
+    overflow: hidden;
+}
+
+/* The background image */
+.zone-media {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.zone-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05); /* organic scale on load */
+    transition: transform var(--transition-slow);
+}
+
+.immersive-zone:hover .zone-media img {
+    transform: scale(1.08);
+}
+
+/* Dark, cinematic gradient overlay */
+.zone-media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top, 
+        rgba(3,3,3,0.95) 0%, 
+        rgba(3,3,3,0.4) 40%, 
+        transparent 100%
+    );
+    z-index: 2;
+}
+
+/* Container that holds the text */
+.zone-content {
+    position: relative;
+    z-index: 3;
+    width: 100%; 
+    padding-bottom: 12vh; /* beautifully offset from bottom */
+    display: flex;
+}
+
+/* Alternate sides for the elegant text box */
+.immersive-zone:nth-child(odd) .zone-content {
+    justify-content: flex-start;
+}
+
+.immersive-zone:nth-child(even) .zone-content {
+    justify-content: flex-end;
+}
+
+/* The glassmorphism text box */
+.zone-text-box {
+    background: rgba(10, 10, 10, 0.45);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 3rem;
+    border-radius: 4px;
+    max-width: 600px;
+}
+
+.zone-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 5vw, 5rem);
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.zone-desc {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    color: var(--color-white);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+}
+
+.zone-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.2rem 2.5rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 992px) {
+    .immersive-zone {
+        height: 100vh;
+        align-items: flex-end;
+    }
+    
+    .zone-content {
+        padding-bottom: 7vh;
+    }
+    
+    .zone-text-box {
+        max-width: 95%;
+        margin: 0 auto;
+        padding: 2.5rem 2rem;
+        background: rgba(10, 10, 10, 0.7);
+    }
+    
+    .immersive-zone:nth-child(odd) .zone-content,
+    .immersive-zone:nth-child(even) .zone-content {
+        justify-content: center;
+    }
+}

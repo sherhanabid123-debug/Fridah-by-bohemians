@@ -55,10 +55,10 @@ const Header = () => {
 
                 <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
                     <ul className="nav-list">
-                        <li><a href="#about" ref={magAbout} onClick={toggleMenu}>About</a></li>
-                        <li><a href="#dishes" ref={magDishes} onClick={toggleMenu}>Dishes</a></li>
-                        <li><a href="#menu" ref={magMenu} onClick={toggleMenu}>Menu</a></li>
-                        <li><a href="#gallery" ref={magGallery} onClick={toggleMenu}>Gallery</a></li>
+                        <li><a href="#enchanted-way" ref={magAbout} onClick={toggleMenu}>Realms</a></li>
+                        <li><a href="#dining" ref={magDishes} onClick={toggleMenu}>Dining</a></li>
+                        <li><a href="#liquor" ref={magMenu} onClick={toggleMenu}>Spirits</a></li>
+                        <li><a href="#reservation" ref={magGallery} onClick={toggleMenu}>Contact</a></li>
                     </ul>
                     <div className="header-actions">
                         <a 

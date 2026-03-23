@@ -1,0 +1,114 @@
+.realms-section {
+    background-color: var(--color-black);
+    position: relative;
+    z-index: 2;
+}
+
+.realms-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.realm-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    group: hover;
+    cursor: pointer;
+}
+
+.realm-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+.realm-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.realm-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(3, 3, 3, 0.4), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.realm-card:hover .realm-image img {
+    transform: scale(1.05);
+}
+
+.realm-card:hover .realm-overlay {
+    opacity: 1;
+}
+
+.realm-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.realm-text {
+    flex: 1;
+    padding-right: 1rem;
+}
+
+.realm-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--color-white);
+    margin-bottom: 0.3rem;
+    transition: color var(--transition-fast);
+}
+
+.realm-card:hover .realm-title {
+    color: var(--color-gold);
+}
+
+.realm-desc {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-grey);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.realm-arrow {
+    color: var(--color-gold);
+    transform: translate(0, 0);
+    transition: transform var(--transition-normal), color var(--transition-normal);
+    opacity: 0.5;
+    padding-top: 0.2rem;
+}
+
+.realm-card:hover .realm-arrow {
+    transform: translate(5px, 5px);
+    opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    .realms-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg) var(--spacing-sm);
+    }
+}
+
+@media (max-width: 768px) {
+    .realms-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .realm-image {
+        aspect-ratio: 16 / 9;
+    }
+}
