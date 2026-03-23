@@ -1,5 +1,34 @@
 .menu-preview {
     background-color: var(--color-black);
+    position: relative; /* Context relative to page */
+}
+
+.menu-hover-reveal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 320px;
+    pointer-events: none; /* VERY IMPORTANT: Let mouse event pass to underlying <li> */
+    z-index: 1000; /* Ensure on top of everything except maybe header */
+    border-radius: 12px;
+    overflow: hidden;
+    transform: translate(-50%, -50%); /* Centered on cursor */
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    will-change: transform, opacity;
+}
+
+.menu-hover-reveal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 992px) {
+    .menu-hover-reveal {
+        display: none !important; /* Extremely intrusive on mobile/touch interfaces */
+    }
 }
 
 .menu-container {

@@ -35,10 +35,10 @@ const DiningPackages = () => {
             <div className="container">
                 <div className="section-header reveal">
                     <h3 className="section-subtitle">
-                        <span className="mask-reveal"><span>Step 1</span></span>
+                        <span className="mask-reveal"><span>Curated Journeys</span></span>
                     </h3>
                     <h2 className="section-title">
-                        <span className="mask-reveal"><span>Choose Your Dining Experience</span></span>
+                        <span className="mask-reveal"><span>Dining Experiences</span></span>
                     </h2>
                     <p className="pkg-intro">
                         Thoughtfully designed for gatherings, celebrations, and private events — where every detail, from food to flow, is taken care of.

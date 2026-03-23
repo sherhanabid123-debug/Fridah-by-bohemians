@@ -6,30 +6,30 @@ import imgZen from '../assets/images/outdoor_seating.jpg';
 import imgBar from '../assets/images/bar_area.jpg';    
 import imgParty from '../assets/images/lux interior.jpg';
 
-const realms = [
+const realmsData = [
+    {
+        id: 'enchanted-way',
+        title: 'Enchanted Way',
+        desc: 'The gateway to your experience.',
+        image: imgEntry
+    },
     {
         id: 'zen-garden',
         title: 'Zen Garden',
-        desc: 'Calm & events',
+        desc: 'Calm, nature, and curated events.',
         image: imgZen
     },
     {
         id: 'dalis-bar',
-        title: 'Dali\'s Bar',
-        desc: 'Nightlife',
+        title: "Dali's Bar",
+        desc: 'Craft cocktails and vibrant nightlife.',
         image: imgBar
     },
     {
-        id: 'concert-room',
-        title: 'Concert Room',
-        desc: 'Music & parties',
+        id: 'kobuci-kert',
+        title: 'Kobuci Kert',
+        desc: 'Live music, concerts, and celebration.',
         image: imgParty
-    },
-    {
-        id: 'dining',
-        title: 'Dining',
-        desc: 'Main experience',
-        image: imgEntry
     }
 ];
 
@@ -38,8 +38,11 @@ const Realms = () => {
         <section className="realms-section section-padding">
             <div className="container">
                 <div className="section-header reveal">
+                    <h3 className="section-subtitle">
+                        <span className="mask-reveal"><span>A Collection of Experiences</span></span>
+                    </h3>
                     <h2 className="section-title" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
-                        <span className="mask-reveal"><span>Choose Your Experience</span></span>
+                        <span className="mask-reveal"><span>Step Into Different Realms</span></span>
                     </h2>
                 </div>
 

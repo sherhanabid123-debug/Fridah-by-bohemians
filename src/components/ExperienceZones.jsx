@@ -11,35 +11,35 @@ import imgParty from '../assets/images/lux interior.jpg';
 
 const zones = [
     {
+        id: 'enchanted-way',
+        title: 'The Enchanted Way',
+        desc: 'Begin your journey through our glass-roofed passage, where nature and architecture elegantly intertwine.',
+        image: imgEntry,
+        cta: 'Explore Space',
+        theme: 'dark'
+    },
+    {
         id: 'zen-garden',
         title: 'Zen Garden',
-        desc: 'Calm, nature, and curated events.',
+        desc: 'A tranquil sanctuary bathed in natural light, perfect for intimate gatherings and curated daytime events.',
         image: imgZen,
-        cta: 'Host your event here',
+        cta: 'Book This Area',
         theme: 'light'
     },
     {
         id: 'dalis-bar',
         title: "Dali's Bar",
-        desc: 'Craft cocktails and vibrant nightlife.',
+        desc: 'Surrealism meets mixology. Discover our vibrant nightlife wrapped in warm, bohemian interiors.',
         image: imgBar,
-        cta: 'Reserve your evening',
+        cta: 'Explore Drinks',
         theme: 'dark'
     },
     {
-        id: 'concert-room',
-        title: 'Concert Room',
-        desc: 'Live music, concerts, and celebration.',
+        id: 'kobuci-kert',
+        title: 'Kobuci Kert',
+        desc: 'Our expansive open-air celebration space, featuring live music, concerts, and unforgettable nights.',
         image: imgParty,
-        cta: 'Join the party',
-        theme: 'dark'
-    },
-    {
-        id: 'dining',
-        title: 'Dining',
-        desc: 'The ultimate culinary foundation of Fridah.',
-        image: imgEntry,
-        cta: 'Plan your experience',
+        cta: 'Host an Event',
         theme: 'light'
     }
 ];
