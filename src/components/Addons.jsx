@@ -11,10 +11,16 @@ const Addons = () => {
     return (
         <section className="section-padding" style={{ backgroundColor: 'var(--color-black)' }}>
             <div className="container reveal">
-                <div className="text-center" style={{ marginBottom: 'var(--spacing-md)' }}>
-                    <h3 className="section-subtitle">
-                        <span>Enhance Your Experience</span>
-                    </h3>
+                <div className="section-header reveal">
+                    <h2 className="section-title">
+                        <span className="mask-reveal"><span>Enhance Your Experience</span></span>
+                    </h2>
+                    <p className="pkg-intro">
+                        Add personalized touches to your dining experience with curated add-ons designed for special occasions. <br />
+                        <span style={{ fontSize: '0.9rem', color: 'var(--color-gold)', opacity: 0.8, letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: '1rem', display: 'block' }}>
+                            Available as an upgrade to curated dining experiences.
+                        </span>
+                    </p>
                 </div>
                 
                 <div className="packages-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginTop: 0 }}>
