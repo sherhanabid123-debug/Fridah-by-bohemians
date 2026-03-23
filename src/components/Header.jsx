@@ -30,7 +30,7 @@ const Header = () => {
         window.addEventListener('resize', handleResize);
 
         // Intersection Observer for active section
-        const sectionIds = ['enchanted-way', 'dining', 'dishes', 'liquor', 'reservation'];
+        const sectionIds = ['home', 'realms', 'dining', 'dishes', 'liquor', 'reservation'];
         const observers = [];
 
         const observerOptions = {
@@ -69,7 +69,7 @@ const Header = () => {
         <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
             <div className="container header-container">
                 <div className="logo">
-                    <a href="#">FRIDAH</a>
+                    <a href="#home">FRIDAH</a>
                 </div>
 
                 <button
@@ -84,10 +84,10 @@ const Header = () => {
                     <ul className="nav-list">
                         <li>
                             <a 
-                                href="#enchanted-way" 
+                                href="#realms" 
                                 ref={magAbout} 
                                 onClick={toggleMenu}
-                                className={activeSection === 'enchanted-way' ? 'active' : ''}
+                                className={activeSection === 'realms' ? 'active' : ''}
                             >
                                 Realms
                             </a>

@@ -9,7 +9,7 @@ const addons = [
 
 const Addons = () => {
     return (
-        <section className="section-padding" style={{ backgroundColor: 'var(--color-black)' }}>
+        <section id="addons" className="section-padding" style={{ backgroundColor: 'var(--color-black)' }}>
             <div className="container reveal">
                 <div className="section-header reveal">
                     <h3 className="section-subtitle">

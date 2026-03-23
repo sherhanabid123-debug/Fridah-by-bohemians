@@ -6,7 +6,7 @@ import FullMenuModal from './FullMenuModal';
 const Hero = () => {
   const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
   return (
-    <section className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
+    <section id="home" className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
       <div className="hero-overlay"></div>
       <div className="hero-content container reveal active">
         <h2 className="hero-subtitle">

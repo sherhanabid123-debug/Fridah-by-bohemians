@@ -36,7 +36,7 @@ const realmsData = [
 
 const Realms = () => {
     return (
-        <section className="realms-section section-padding">
+        <section id="realms" className="realms-section section-padding">
             <div className="container">
                 <div className="section-header reveal">
                     <h3 className="section-subtitle">
