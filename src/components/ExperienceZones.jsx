@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './ExperienceZones.css';
 import { ArrowRight } from 'lucide-react';
 import imgEntry from '../assets/images/alleyway.jpg'; 
-
+import imgZen from '../assets/images/outdoor_seating.jpg';    
 import imgBar from '../assets/images/bar_area.jpg';    
 import imgParty from '../assets/images/lux interior.jpg'; 
 
@@ -17,6 +17,14 @@ const zones = [
         image: imgEntry,
         cta: 'Explore Space',
         theme: 'dark'
+    },
+    {
+        id: 'zen-garden',
+        title: 'Zen Garden',
+        desc: 'A tranquil sanctuary bathed in natural light, perfect for intimate gatherings and curated daytime events.',
+        image: imgZen,
+        cta: 'Book This Area',
+        theme: 'light'
     },
 
     {

@@ -13,6 +13,12 @@ const realmsData = [
         desc: 'The gateway to your experience.',
         image: imgEntry
     },
+    {
+        id: 'zen-garden',
+        title: 'Zen Garden',
+        desc: 'Calm, nature, and curated events.',
+        image: imgZen
+    },
 
     {
         id: 'dalis-bar',
