@@ -4,6 +4,8 @@ import Hero from './components/Hero';
 import Realms from './components/Realms';
 import ExperienceZones from './components/ExperienceZones';
 import DiningPackages from './components/DiningPackages';
+import SignatureDishes from './components/SignatureDishes';
+import MenuPreview from './components/MenuPreview';
 import LiquorPackages from './components/LiquorPackages';
 import Addons from './components/Addons';
 import LocationMap from './components/LocationMap';
@@ -130,6 +132,8 @@ function App() {
           <Realms />
           <ExperienceZones />
           <DiningPackages />
+          <SignatureDishes />
+          <MenuPreview />
           <LiquorPackages />
           <Addons />
           <LocationMap />

@@ -30,7 +30,7 @@ const Header = () => {
         window.addEventListener('resize', handleResize);
 
         // Intersection Observer for active section
-        const sectionIds = ['enchanted-way', 'dining', 'liquor', 'reservation'];
+        const sectionIds = ['enchanted-way', 'dining', 'dishes', 'liquor', 'reservation'];
         const observers = [];
 
         const observerOptions = {
@@ -104,8 +104,18 @@ const Header = () => {
                         </li>
                         <li>
                             <a 
-                                href="#liquor" 
+                                href="#dishes" 
                                 ref={magMenu} 
+                                onClick={toggleMenu}
+                                className={activeSection === 'dishes' ? 'active' : ''}
+                            >
+                                Menu
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                                href="#liquor" 
+                                ref={magGallery} 
                                 onClick={toggleMenu}
                                 className={activeSection === 'liquor' ? 'active' : ''}
                             >
@@ -115,7 +125,7 @@ const Header = () => {
                         <li>
                             <a 
                                 href="#reservation" 
-                                ref={magGallery} 
+                                ref={magRes} 
                                 onClick={toggleMenu}
                                 className={activeSection === 'reservation' ? 'active' : ''}
                             >
