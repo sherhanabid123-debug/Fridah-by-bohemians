@@ -24,6 +24,9 @@ const LiquorPackages = () => {
         <section id="liquor" className="packages-section section-padding" style={{ backgroundColor: 'var(--color-charcoal)' }}>
             <div className="container">
                 <div className="section-header reveal">
+                    <h3 className="section-subtitle">
+                        <span className="mask-reveal"><span>Elevated Celebrations</span></span>
+                    </h3>
                     <h2 className="section-title">
                         <span className="mask-reveal"><span>Spirits & Mixology</span></span>
                     </h2>

@@ -12,6 +12,9 @@ const Addons = () => {
         <section className="section-padding" style={{ backgroundColor: 'var(--color-black)' }}>
             <div className="container reveal">
                 <div className="section-header reveal">
+                    <h3 className="section-subtitle">
+                        <span className="mask-reveal"><span>Bespoke Upgrades</span></span>
+                    </h3>
                     <h2 className="section-title">
                         <span className="mask-reveal"><span>Enhance Your Experience</span></span>
                     </h2>
