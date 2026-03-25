@@ -19,8 +19,8 @@
   --spacing-xs: 0.5rem;
   --spacing-sm: 1.5rem;
   --spacing-md: 3rem;
-  --spacing-lg: 6rem;
-  --spacing-xl: 10rem;
+  --spacing-lg: 8rem;
+  --spacing-xl: 14rem;
 
   /* Transitions */
   --transition-fast: 0.4s cubic-bezier(0.25, 1, 0.5, 1);

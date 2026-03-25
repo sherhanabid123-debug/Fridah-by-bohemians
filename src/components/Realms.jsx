@@ -10,7 +10,7 @@ const realmsData = [
     {
         id: 'enchanted-way',
         title: 'Enchanted Way',
-        desc: 'The gateway to your experience.',
+        desc: 'Nature and architecture in harmony.',
         image: imgEntry
     },
     {
@@ -29,7 +29,7 @@ const realmsData = [
     {
         id: 'kobuci-kert',
         title: 'Kobuci Kert',
-        desc: 'Live music, concerts, and celebration.',
+        desc: 'Open-air celebrations and live music.',
         image: imgParty
     }
 ];

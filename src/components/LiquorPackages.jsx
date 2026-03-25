@@ -21,19 +21,12 @@ const liquorPackages = [
 
 const LiquorPackages = () => {
     return (
-        <section id="liquor" className="packages-section section-padding" style={{ backgroundColor: 'var(--color-charcoal)' }}>
+        <section id="liquor" className="packages-section section-padding" style={{ backgroundColor: 'var(--color-charcoal)', paddingTop: '0' }}>
             <div className="container">
                 <div className="section-header reveal">
-                    <h3 className="section-subtitle">
-                        <span className="mask-reveal"><span>Elevated Celebrations</span></span>
-                    </h3>
-                    <h2 className="section-title">
+                    <h2 className="section-title" style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>
                         <span className="mask-reveal"><span>Spirits & Mixology</span></span>
                     </h2>
-                    <p className="pkg-intro">
-                        Curated beverage packages designed to complement your dining and elevate your celebrations. <br />
-                        Ideal for private events, group bookings, and special occasions.
-                    </p>
                 </div>
 
                 <div className="packages-grid three-col">

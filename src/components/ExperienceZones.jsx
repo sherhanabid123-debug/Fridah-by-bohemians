@@ -13,7 +13,7 @@ const zones = [
     {
         id: 'enchanted-way',
         title: 'The Enchanted Way',
-        desc: 'Begin your journey through our glass-roofed passage, where nature and architecture elegantly intertwine.',
+        desc: 'Nature and architecture elegantly intertwine in our glass-roofed signature passage.',
         image: imgEntry,
         cta: 'Explore Space',
         theme: 'dark'
@@ -21,16 +21,15 @@ const zones = [
     {
         id: 'zen-garden',
         title: 'Zen Garden',
-        desc: 'A tranquil sanctuary bathed in natural light, perfect for intimate gatherings and curated daytime events.',
+        desc: 'A tranquil sanctuary bathed in natural light, perfect for intimate gatherings.',
         image: imgZen,
         cta: 'Book This Area',
         theme: 'light'
     },
-
     {
         id: 'dalis-bar',
         title: "Dali's Bar",
-        desc: 'Surrealism meets mixology. Discover our vibrant nightlife wrapped in warm, bohemian interiors.',
+        desc: 'Surrealism meets mixology in a space defined by vibrant bohemian energy.',
         image: imgBar,
         cta: 'Explore Drinks',
         theme: 'dark'
@@ -38,7 +37,7 @@ const zones = [
     {
         id: 'kobuci-kert',
         title: 'Kobuci Kert',
-        desc: 'Our expansive open-air celebration space, featuring live music, concerts, and unforgettable nights.',
+        desc: 'Our expansive open-air destination for live music, concerts, and legendary nights.',
         image: imgParty,
         cta: 'Host an Event',
         theme: 'light'

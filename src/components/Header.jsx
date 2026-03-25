@@ -30,7 +30,7 @@ const Header = () => {
         window.addEventListener('resize', handleResize);
 
         // Intersection Observer for active section
-        const sectionIds = ['home', 'realms', 'dining', 'dishes', 'liquor', 'reservation'];
+        const sectionIds = ['home', 'realms', 'offerings', 'celebrate', 'reservation'];
         const observers = [];
 
         const observerOptions = {
@@ -89,37 +89,27 @@ const Header = () => {
                                 onClick={toggleMenu}
                                 className={activeSection === 'realms' ? 'active' : ''}
                             >
-                                Realms
+                                Discover
                             </a>
                         </li>
                         <li>
                             <a 
-                                href="#dining" 
-                                ref={magDishes} 
-                                onClick={toggleMenu}
-                                className={activeSection === 'dining' ? 'active' : ''}
-                            >
-                                Dining
-                            </a>
-                        </li>
-                        <li>
-                            <a 
-                                href="#dishes" 
+                                href="#offerings" 
                                 ref={magMenu} 
                                 onClick={toggleMenu}
-                                className={activeSection === 'dishes' ? 'active' : ''}
+                                className={activeSection === 'offerings' ? 'active' : ''}
                             >
-                                Menu
+                                Experience
                             </a>
                         </li>
                         <li>
                             <a 
-                                href="#liquor" 
+                                href="#celebrate" 
                                 ref={magGallery} 
                                 onClick={toggleMenu}
-                                className={activeSection === 'liquor' ? 'active' : ''}
+                                className={activeSection === 'celebrate' ? 'active' : ''}
                             >
-                                Spirits
+                                Celebrate
                             </a>
                         </li>
                         <li>
@@ -129,7 +119,7 @@ const Header = () => {
                                 onClick={toggleMenu}
                                 className={activeSection === 'reservation' ? 'active' : ''}
                             >
-                                Contact
+                                Reserve
                             </a>
                         </li>
                     </ul>

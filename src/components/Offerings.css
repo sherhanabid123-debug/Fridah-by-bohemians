@@ -1,0 +1,78 @@
+/* src/components/Offerings.css */
+.offerings-section {
+    background-color: var(--color-black);
+}
+
+.offerings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.offering-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 500px;
+}
+
+.offering-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s var(--ease-out-expo);
+}
+
+.offering-card:hover .offering-image {
+    transform: scale(1.05);
+}
+
+.offering-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.offering-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-md);
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+}
+
+.offering-content {
+    max-width: 400px;
+}
+
+.offering-type {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+}
+
+.offering-desc {
+    color: var(--color-off-white);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .offerings-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .offering-card {
+        height: 400px;
+    }
+
+    .offering-type {
+        font-size: 2rem;
+    }
+}

@@ -6,6 +6,8 @@ import ExperienceZones from './components/ExperienceZones';
 import DiningPackages from './components/DiningPackages';
 import SignatureDishes from './components/SignatureDishes';
 import MenuPreview from './components/MenuPreview';
+import Offerings from './components/Offerings';
+import Events from './components/Events';
 import LiquorPackages from './components/LiquorPackages';
 import Addons from './components/Addons';
 import LocationMap from './components/LocationMap';
@@ -136,13 +138,18 @@ function App() {
           <Hero />
           <Realms />
           <ExperienceZones />
-          <DiningPackages />
-          <SignatureDishes />
-          <MenuPreview />
-          <LiquorPackages />
-          <Addons />
-          <LocationMap />
           <Reservation />
+          <Offerings />
+          <Events />
+          
+          {/* Celebrate With Us Section */}
+          <div id="celebrate" className="celebrate-group">
+            <DiningPackages />
+            <LiquorPackages />
+            <Addons />
+          </div>
+
+          <LocationMap />
           <CTASection />
           <Footer />
         </div>

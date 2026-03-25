@@ -31,17 +31,17 @@ const DiningPackages = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <section id="dining" className="packages-section section-padding">
+        <section id="celebrate" className="packages-section section-padding">
             <div className="container">
                 <div className="section-header reveal">
                     <h3 className="section-subtitle">
-                        <span className="mask-reveal"><span>Curated Journeys</span></span>
+                        <span className="mask-reveal"><span>Event Experiences</span></span>
                     </h3>
                     <h2 className="section-title">
-                        <span className="mask-reveal"><span>Dining Experiences</span></span>
+                        <span className="mask-reveal"><span>Celebrate With Us</span></span>
                     </h2>
                     <p className="pkg-intro">
-                        Thoughtfully designed for gatherings, celebrations, and private events — where every detail, from food to flow, is taken care of.
+                        Curated dining and beverage experiences designed for group celebrations and private events.
                     </p>
                 </div>
 
