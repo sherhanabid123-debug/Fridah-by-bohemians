@@ -13,6 +13,9 @@ const Offerings = () => {
                     <h2 className="section-title">
                         <span className="mask-reveal"><span>Our Offerings</span></span>
                     </h2>
+                    <p className="pkg-intro">
+                        Thoughtfully crafted food and signature cocktails designed to complement every moment.
+                    </p>
                 </div>
 
                 <div className="offerings-grid">

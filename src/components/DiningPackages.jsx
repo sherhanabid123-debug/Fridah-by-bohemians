@@ -41,7 +41,7 @@ const DiningPackages = () => {
                         <span className="mask-reveal"><span>Celebrate With Us</span></span>
                     </h2>
                     <p className="pkg-intro">
-                        Curated dining and beverage experiences designed for group celebrations and private events.
+                        Curated dining and beverage experiences designed for group celebrations and special occasions.
                     </p>
                 </div>
 
@@ -65,7 +65,10 @@ const DiningPackages = () => {
                 </div>
 
                 <div className="text-center mt-lg reveal">
-                    <button className="btn-primary" onClick={() => setIsMenuOpen(true)}>View Full Menu</button>
+                    <p className="pkg-intro" style={{ marginTop: '0', opacity: '0.6', fontSize: '0.9rem' }}>
+                        Available for private events, group bookings, and celebrations.
+                    </p>
+                    <button className="btn-primary mt-md" onClick={() => setIsMenuOpen(true)}>View Full Menu</button>
                 </div>
             </div>
             

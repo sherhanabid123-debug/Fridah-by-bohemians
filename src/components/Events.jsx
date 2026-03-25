@@ -35,6 +35,9 @@ const Events = () => {
                     <h2 className="section-title">
                         <span className="mask-reveal"><span>Experiences at Fridah</span></span>
                     </h2>
+                    <p className="pkg-intro">
+                        From live performances to vibrant evenings, every visit offers something unique.
+                    </p>
                 </div>
 
                 <div className="events-grid">
