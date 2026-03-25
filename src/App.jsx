@@ -125,8 +125,6 @@ function App() {
   return (
     <>
       <Preloader onLoadingComplete={handleLoadingComplete} />
-      <div className="film-grain"></div>
-      <div className="film-grain"></div>
       
       <div className={`app-root ${isAppLoaded ? 'app-ready' : ''}`}>
         <div className="scroll-progress-container">

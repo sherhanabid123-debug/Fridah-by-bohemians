@@ -5,22 +5,22 @@ const eventItems = [
     {
         icon: <Music size={32} strokeWidth={1} />,
         title: 'Live Music',
-        desc: 'Curated sets from Bengaluru\'s soulful acoustic artists and bands.'
+        desc: 'Evenings brought alive with live performances'
     },
     {
         icon: <Trophy size={32} strokeWidth={1} />,
         title: 'Sports Screenings',
-        desc: 'Big game energy in an immersive open-air stadium atmosphere.'
+        desc: 'Catch every big moment live'
     },
     {
         icon: <Mic2 size={32} strokeWidth={1} />,
         title: 'Karaoke Nights',
-        desc: 'Take the stage and sing your heart out in our vibrant community.'
+        desc: 'Step up and own the stage'
     },
     {
         icon: <Star size={32} strokeWidth={1} />,
         title: 'Special Evenings',
-        desc: 'From curated festivals to exclusive themed nightlife events.'
+        desc: 'Unique experiences crafted for every visit'
     }
 ];
 

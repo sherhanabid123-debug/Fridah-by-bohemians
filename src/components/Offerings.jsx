@@ -24,8 +24,8 @@ const Offerings = () => {
                             <img src={imgFood} alt="Cuisine" />
                             <div className="offering-overlay">
                                 <div className="offering-content">
-                                    <h4 className="offering-type">Cuisine</h4>
-                                    <p className="offering-desc">Artisanal multicuisine plates where global flavors meet bohemian soul.</p>
+                                    <h4 className="offering-type">Food</h4>
+                                    <p className="offering-desc">A thoughtfully curated menu bringing together bold flavors and comfort.</p>
                                 </div>
                             </div>
                         </div>
@@ -36,8 +36,8 @@ const Offerings = () => {
                             <img src={imgCocktail} alt="Mixology" />
                             <div className="offering-overlay">
                                 <div className="offering-content">
-                                    <h4 className="offering-type">Mixology</h4>
-                                    <p className="offering-desc">Bespoke cocktails and signature infusions crafted by our master mixologists.</p>
+                                    <h4 className="offering-type">Cocktails</h4>
+                                    <p className="offering-desc">Signature cocktails crafted to elevate every moment.</p>
                                 </div>
                             </div>
                         </div>

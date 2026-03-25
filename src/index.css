@@ -18,14 +18,14 @@
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1.5rem;
-  --spacing-md: 3rem;
-  --spacing-lg: 8rem;
-  --spacing-xl: 14rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3.5rem;
+  --spacing-xl: 10rem;
 
   /* Transitions */
-  --transition-fast: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  --transition-normal: 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-  --transition-slow: 1.6s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-fast: 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+  --transition-normal: 1s cubic-bezier(0.2, 0, 0, 1);
+  --transition-slow: 2s cubic-bezier(0.2, 0, 0, 1);
 
   /* Layout */
   --max-width: 1400px;
@@ -137,6 +137,7 @@ img {
 
 .section-padding {
   padding: var(--spacing-xl) 0;
+  margin-bottom: var(--spacing-lg);
 }
 
 @media (max-width: 768px) {
@@ -265,11 +266,11 @@ img {
 /* Scroll Reveling Utilities */
 .reveal {
   opacity: 0;
-  transform: translateY(40px) scale(0.98);
-  filter: blur(10px);
-  transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
-              filter 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(30px);
+  filter: blur(5px);
+  transition: opacity 1.5s cubic-bezier(0.2, 0, 0, 1), 
+              transform 1.5s cubic-bezier(0.2, 0, 0, 1),
+              filter 1.5s cubic-bezier(0.2, 0, 0, 1);
   will-change: opacity, transform, filter;
 }
 
@@ -315,17 +316,4 @@ img {
   background: var(--color-gold);
   box-shadow: 0 0 10px var(--color-gold);
   transition: width 0.1s ease-out;
-}
-
-/* Cinematic Film Grain Overlay */
-.film-grain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }

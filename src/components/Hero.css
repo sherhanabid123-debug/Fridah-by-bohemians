@@ -63,8 +63,17 @@
 }
 
 .hero-title {
+    font-family: var(--font-body);
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+    font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    max-width: 1000px;
     margin: var(--spacing-sm) 0;
-    text-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+    color: var(--color-white);
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    opacity: 0.9;
 }
 
 .hero-title span {
@@ -80,12 +89,13 @@
 
 
 .hero-tagline {
-    max-width: 650px;
+    max-width: 600px;
     margin: 0 auto var(--spacing-md);
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
     font-weight: 300;
-    line-height: 1.8;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
 }
 
 .hero-actions {

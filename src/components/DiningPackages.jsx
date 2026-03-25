@@ -41,7 +41,7 @@ const DiningPackages = () => {
                         <span className="mask-reveal"><span>Celebrate With Us</span></span>
                     </h2>
                     <p className="pkg-intro">
-                        Curated dining and beverage experiences designed for group celebrations and special occasions.
+                        Choose from curated dining and beverage experiences designed for celebrations and group gatherings.
                     </p>
                 </div>
 
