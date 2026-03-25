@@ -15,7 +15,6 @@ import Reservation from './components/Reservation';
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
-import CustomCursor from './components/CustomCursor';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -127,7 +126,7 @@ function App() {
     <>
       <Preloader onLoadingComplete={handleLoadingComplete} />
       <div className="film-grain"></div>
-      <CustomCursor />
+      <div className="film-grain"></div>
       
       <div className={`app-root ${isAppLoaded ? 'app-ready' : ''}`}>
         <div className="scroll-progress-container">
