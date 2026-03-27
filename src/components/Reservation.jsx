@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import './Reservation.css';
+import { useMagnetic } from '../hooks/useMagnetic';
 import resImage from '../assets/images/bar_area.jpg';
 import OrderModal from './OrderModal';
 
 const Reservation = () => {
+    const magRes = useMagnetic();
     const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
     return (
         <section id="reservation" className="reservation section-padding">
@@ -26,6 +28,7 @@ const Reservation = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-primary mt-md"
+                            ref={magRes}
                             style={{ display: 'inline-block', marginRight: '1rem' }}
                         >
                             Request a Reservation

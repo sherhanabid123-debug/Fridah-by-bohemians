@@ -19,19 +19,25 @@ const liquorPackages = [
     }
 ];
 
-const LiquorPackages = () => {
+const LiquorPackages = ({ hideHeader = false }) => {
     return (
-        <section id="liquor" className="packages-section section-padding" style={{ backgroundColor: 'var(--color-charcoal)', paddingTop: '0' }}>
+        <section id={!hideHeader ? "liquor" : undefined} className={`packages-section ${!hideHeader ? 'section-padding' : ''}`} style={{ backgroundColor: 'var(--color-charcoal)', paddingTop: '0' }}>
             <div className="container">
-                <div className="section-header reveal">
-                    <h2 className="section-title" style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>
-                        <span className="mask-reveal"><span>Spirits & Mixology</span></span>
-                    </h2>
-                </div>
+                {!hideHeader && (
+                    <div className="section-header reveal">
+                        <h2 className="section-title" style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>
+                            <span className="mask-reveal"><span>Spirits & Mixology</span></span>
+                        </h2>
+                    </div>
+                )}
 
                 <div className="packages-grid three-col">
                     {liquorPackages.map((pkg, index) => (
-                        <div key={index} className={`package-card reveal ${pkg.featured ? 'featured' : ''}`} style={{ transitionDelay: `${index * 0.15}s` }}>
+                        <div 
+                            key={index} 
+                            className={`package-card ${!hideHeader ? 'reveal' : 'active'} ${pkg.featured ? 'featured' : ''}`} 
+                            style={{ transitionDelay: `${index * 0.15}s` }}
+                        >
                             {pkg.featured && <div className="package-badge">Recommended</div>}
                             <h4 className="package-tier">{pkg.tier}</h4>
                             <div className="package-price">{pkg.price}</div>

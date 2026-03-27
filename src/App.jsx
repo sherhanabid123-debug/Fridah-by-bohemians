@@ -10,6 +10,7 @@ import Offerings from './components/Offerings';
 import Events from './components/Events';
 import LiquorPackages from './components/LiquorPackages';
 import Addons from './components/Addons';
+import Celebrate from './components/Celebrate';
 import LocationMap from './components/LocationMap';
 import Reservation from './components/Reservation';
 import CTASection from './components/CTASection';
@@ -135,17 +136,11 @@ function App() {
           <Hero />
           <Realms />
           <ExperienceZones />
-          <Reservation />
           <Offerings />
           <Events />
-          
-          {/* Celebrate With Us Section */}
-          <div id="celebrate" className="celebrate-group">
-            <DiningPackages />
-            <LiquorPackages />
-            <Addons />
-          </div>
+          <Celebrate />
 
+          <Reservation />
           <LocationMap />
           <CTASection />
           <Footer />

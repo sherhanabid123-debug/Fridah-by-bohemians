@@ -1,3 +1,7 @@
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Events.css';
 import { Music, Trophy, Mic2, Star } from 'lucide-react';
 
@@ -5,28 +9,45 @@ const eventItems = [
     {
         icon: <Music size={32} strokeWidth={1} />,
         title: 'Live Music',
-        desc: 'Evenings brought alive with live performances'
+        desc: 'Evenings brought alive with live performances and energy.'
     },
     {
         icon: <Trophy size={32} strokeWidth={1} />,
         title: 'Sports Screenings',
-        desc: 'Catch every big moment live'
+        desc: 'Catch every big game and moment live on the big screen.'
     },
     {
         icon: <Mic2 size={32} strokeWidth={1} />,
         title: 'Karaoke Nights',
-        desc: 'Step up and own the stage'
+        desc: 'Step up, grab the mic, and own the stage.'
     },
     {
         icon: <Star size={32} strokeWidth={1} />,
         title: 'Special Evenings',
-        desc: 'Unique experiences crafted for every visit'
+        desc: 'Unique curated experiences designed for every visit.'
     }
 ];
 
 const Events = () => {
+    const sectionRef = useRef(null);
+
+    useGSAP(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        
+        gsap.to('.events-grid', {
+            y: -50,
+            ease: "none",
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+    }, { scope: sectionRef });
+
     return (
-        <section id="events" className="events-section section-padding">
+        <section id="events" className="events-section section-padding" ref={sectionRef}>
             <div className="container">
                 <div className="section-header reveal">
                     <h3 className="section-subtitle">

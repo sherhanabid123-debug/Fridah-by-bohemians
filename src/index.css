@@ -12,7 +12,8 @@
   --color-light-grey: #cccccc;
 
   /* Typography */
-  --font-heading: 'Cinzel', serif;
+  --font-heading: 'Inter', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
   --font-body: 'Inter', sans-serif;
 
   /* Spacing */
@@ -138,6 +139,17 @@ img {
 .section-padding {
   padding: var(--spacing-xl) 0;
   margin-bottom: var(--spacing-lg);
+}
+
+.section-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: var(--color-gold);
+  letter-spacing: 0.15em;
+  text-transform: none;
+  margin-bottom: var(--spacing-sm);
+  display: inline-block;
 }
 
 @media (max-width: 768px) {

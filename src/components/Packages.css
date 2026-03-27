@@ -49,6 +49,7 @@
     background: rgba(212, 175, 55, 0.05);
     border-color: var(--color-gold);
     transform: scale(1.02);
+    padding-top: calc(var(--spacing-md) + 0.5rem);
 }
 
 .package-card.featured:hover {
@@ -58,7 +59,7 @@
 
 .package-badge {
     position: absolute;
-    top: -12px;
+    top: -15px;
     left: 50%;
     transform: translateX(-50%);
     background: var(--color-gold);

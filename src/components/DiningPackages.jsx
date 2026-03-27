@@ -27,27 +27,33 @@ const diningPackages = [
     }
 ];
 
-const DiningPackages = () => {
+const DiningPackages = ({ hideHeader = false }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <section id="celebrate" className="packages-section section-padding">
+        <section id={!hideHeader ? "celebrate" : undefined} className={`packages-section ${!hideHeader ? 'section-padding' : ''}`}>
             <div className="container">
-                <div className="section-header reveal">
-                    <h3 className="section-subtitle">
-                        <span className="mask-reveal"><span>Event Experiences</span></span>
-                    </h3>
-                    <h2 className="section-title">
-                        <span className="mask-reveal"><span>Celebrate With Us</span></span>
-                    </h2>
-                    <p className="pkg-intro">
-                        Choose from curated dining and beverage experiences designed for celebrations and group gatherings.
-                    </p>
-                </div>
+                {!hideHeader && (
+                    <div className="section-header reveal">
+                        <h3 className="section-subtitle">
+                            <span className="mask-reveal"><span>Event Experiences</span></span>
+                        </h3>
+                        <h2 className="section-title">
+                            <span className="mask-reveal"><span>Celebrate With Us</span></span>
+                        </h2>
+                        <p className="pkg-intro">
+                            Choose from curated dining and beverage experiences designed for celebrations and group gatherings.
+                        </p>
+                    </div>
+                )}
 
                 <div className="packages-grid">
                     {diningPackages.map((pkg, index) => (
-                        <div key={index} className={`package-card reveal ${pkg.featured ? 'featured' : ''}`} style={{ transitionDelay: `${index * 0.15}s` }}>
+                        <div 
+                            key={index} 
+                            className={`package-card ${!hideHeader ? 'reveal' : 'active'} ${pkg.featured ? 'featured' : ''}`} 
+                            style={{ transitionDelay: `${index * 0.15}s` }}
+                        >
                             {pkg.featured && <div className="package-badge">Most Exclusive</div>}
                             <h4 className="package-tier">{pkg.tier}</h4>
                             {pkg.subtitle && <p className="package-subtitle">{pkg.subtitle}</p>}
@@ -64,7 +70,7 @@ const DiningPackages = () => {
                     ))}
                 </div>
 
-                <div className="text-center mt-lg reveal">
+                <div className={`text-center mt-lg ${!hideHeader ? 'reveal' : 'active'}`}>
                     <p className="pkg-intro" style={{ marginTop: '0', opacity: '0.6', fontSize: '0.9rem' }}>
                         Available for private events, group bookings, and celebrations.
                     </p>

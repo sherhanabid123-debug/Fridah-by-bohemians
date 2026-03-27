@@ -10,26 +10,26 @@ const realmsData = [
     {
         id: 'enchanted-way',
         title: 'Enchanted Way',
-        desc: 'Nature and architecture in harmony.',
+        desc: 'The journey that welcomes you into the world of Fridah.',
         image: imgEntry
     },
     {
         id: 'zen-garden',
         title: 'Zen Garden',
-        desc: 'Calm, nature, and curated events.',
+        desc: 'A calm, immersive space where nature and celebration meet.',
         image: imgZen
     },
 
     {
         id: 'dalis-bar',
         title: "Dali's Bar",
-        desc: 'Craft cocktails and vibrant nightlife.',
+        desc: 'A surreal cocktail experience where art and nightlife blend.',
         image: imgBar
     },
     {
         id: 'kobuci-kert',
         title: 'Kobuci Kert',
-        desc: 'Open-air celebrations and live music.',
+        desc: 'High-energy music, dance, and unforgettable nights.',
         image: imgParty
     }
 ];
