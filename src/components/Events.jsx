@@ -72,6 +72,10 @@ const Events = () => {
                         </div>
                     ))}
                 </div>
+
+                <div className="events-actions reveal" style={{ textAlign: 'center', marginTop: '4rem', transitionDelay: '0.4s' }}>
+                    <a href="#reservation" className="btn-primary">Reserve Table</a>
+                </div>
             </div>
         </section>
     );

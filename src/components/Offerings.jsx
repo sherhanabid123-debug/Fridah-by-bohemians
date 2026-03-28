@@ -1,12 +1,14 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Offerings.css';
+import FullMenuModal from './FullMenuModal';
 import imgFood from '../assets/images/food_sushi.jpg';
 import imgCocktail from '../assets/images/food_drink.jpg';
 
 const Offerings = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const sectionRef = useRef(null);
 
     useGSAP(() => {
@@ -67,7 +69,13 @@ const Offerings = () => {
                         </div>
                     </div>
                 </div>
+                
+                <div className="offerings-actions reveal" style={{ transitionDelay: '0.4s', textAlign: 'center', marginTop: '4rem' }}>
+                    <button className="btn-primary" onClick={() => setIsMenuOpen(true)}>View Menu</button>
+                </div>
             </div>
+            
+            <FullMenuModal isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
         </section>
     );
 };
