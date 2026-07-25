@@ -1,5 +1,7 @@
 # Fridah by Bohemians
 
+**Live site:** [https://fridah-by-bohemians.vercel.app](https://fridah-by-bohemians.vercel.app)
+
 Website for Fridah by Bohemians, a restaurant and event space, built with React and Vite.
 
 ## Features
