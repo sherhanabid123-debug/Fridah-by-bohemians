@@ -1,8 +1,14 @@
 {
   "name": "fridah-by-bohemians",
+  "description": "Website for Fridah by Bohemians, a restaurant and event space.",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "author": "Sherhan Abid",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sherhanabid123-debug/Fridah-by-bohemians"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
